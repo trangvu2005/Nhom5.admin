@@ -1,91 +1,87 @@
 <!DOCTYPE html>
-<html lang="vi" data-bs-theme="light">
-
+<html lang="en" data-bs-theme="light">
 <head>
-    <!-- Các thẻ Meta (thiết lập thông tin cho trình duyệt & SEO) -->
+    <!-- Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Hệ thống quản trị bán vé sự kiện - Giao diện dashboard hiện đại, trực quan, tối ưu cho quản lý sự kiện và người dùng">
-    <meta name="keywords" content="event, ticket, ueh, dashboard, admin, quản trị, bán vé, quản lý sự kiện">
-    <meta name="author" content="Event Ticket Dashboard">
-
-    <!-- Thẻ Open Graph (tối ưu hiển thị khi chia sẻ lên mạng xã hội) -->
-    <meta property="og:title" content="Event Ticket Admin Dashboard">
-    <meta property="og:description" content="Giao diện quản trị hiện đại cho hệ thống bán vé sự kiện">
+    <meta name="description" content="Modern Bootstrap 5 Admin Template - Clean, responsive dashboard">
+    <meta name="keywords" content="bootstrap, admin, dashboard, template, modern, responsive">
+    <meta name="author" content="Bootstrap Admin Template">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Modern Bootstrap Admin Template">
+    <meta property="og:description" content="Clean and modern admin dashboard template built with Bootstrap 5">
     <meta property="og:type" content="website">
-
-
-    <!-- Biểu tượng nhỏ hiển thị trên tab trình duyệt, bookmark, hoặc shortcut -->
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="./assets/favicon-CvUZKS4z.svg">
     <link rel="icon" type="image/png" href="./assets/favicon-B_cwPWBd.png">
-
-    <!-- Thiết lập kết nối sớm đến các máy chủ bên ngoài -->
+    
+    <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- Fonts chữ sử dụng -->
+    
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Tiêu đề trang web -->
-    <title>Dashboard - Quản trị bán vé sự kiện</title>
-
-    <!-- Màu chủ đề của giao diện -->
+    
+    <!-- Title -->
+    <title>Dashboard - Modern Bootstrap Admin</title>
+    
+    <!-- Theme Color -->
     <meta name="theme-color" content="#6366f1">
-
-    <!-- Tệp manifest cho ứng dụng web (PWA) -->
+    
+    <!-- PWA Manifest -->
     <link rel="manifest" href="./assets/manifest-DTaoG9pG.json">
-
-    <!-- Các thư viện và script chính của hệ thống -->
-    <script type="module" crossorigin src="./assets/vendor-bootstrap-C9iorZI5.js"></script>
-    <script type="module" crossorigin src="./assets/vendor-charts-DGwYAWel.js"></script>
-    <script type="module" crossorigin src="./assets/vendor-ui-DjYv-mAO.js"></script>
-    <script type="module" crossorigin src="./assets/main-BHbn44Op.js"></script>
-
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" crossorigin href="./assets/main-QD_VOj1Y.css">
+  <script type="module" crossorigin src="./assets/vendor-bootstrap-C9iorZI5.js"></script>
+  <script type="module" crossorigin src="./assets/vendor-charts-DGwYAWel.js"></script>
+  <script type="module" crossorigin src="./assets/vendor-ui-DjYv-mAO.js"></script>
+  <script type="module" crossorigin src="./assets/main-CdVtVaPX.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/main-kLYUWtMo.css">
 </head>
 
 <body data-page="dashboard" class="admin-layout">
-    <!-- Màn hình hiển thị khi trang đang tải -->
+    <!-- Loading Screen -->
     <div id="loading-screen" class="loading-screen">
         <div class="loading-spinner">
             <div class="spinner-border text-primary" role="status">
-                <span class="visually-hidden">Đang tải...</span>
+                <span class="visually-hidden">Loading...</span>
             </div>
         </div>
     </div>
 
-    <!-- Khung tổng -->
+    <!-- Main Wrapper -->
     <div class="admin-wrapper" id="admin-wrapper">
-
-        <!-- Phần đầu trang (Header) -->
+        
+        <!-- Header -->
         <header class="admin-header">
             <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
                 <div class="container-fluid">
-
-                    <!-- Logo -->
+                    <!-- Logo/Brand - Now first on the left -->
                     <a class="navbar-brand d-flex align-items-center" href="./index.html">
-                        <img src="data:image/svg+xml,%3csvg%20width='32'%20height='32'%20viewBox='0%200%2032%2032'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3ccircle%20cx='16'%20cy='16'%20r='16'%20fill='url(%23logoGradient)'/%3e%3cpath%20d='M10%2024V8h2.5l2.5%206.5L17.5%208H20v16h-2V12.5L16.5%2020h-1L14%2012.5V24H10z'%20fill='white'%20/%3e%3cdefs%3e%3clinearGradient%20id='logoGradient'%20x1='0%25'%20y1='0%25'%20x2='100%25'%20y2='100%25'%3e%3cstop%20offset='0%25'%20style='stop-color:%236366f1;stop-opacity:1'%20/%3e%3cstop%20offset='100%25'%20style='stop-color:%238b5cf6;stop-opacity:1'%20/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e"
-                            alt="Logo" height="32" class="me-2">
-                        <h1 class="h4 mb-0 fw-bold text-primary">UEH Events Admin</h1>
+                        <img src="data:image/svg+xml,%3csvg%20width='32'%20height='32'%20viewBox='0%200%2032%2032'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3c!--%20Background%20circle%20for%20the%20M%20--%3e%3ccircle%20cx='16'%20cy='16'%20r='16'%20fill='url(%23logoGradient)'/%3e%3c!--%20Centered%20Letter%20M%20--%3e%3cpath%20d='M10%2024V8h2.5l2.5%206.5L17.5%208H20v16h-2V12.5L16.5%2020h-1L14%2012.5V24H10z'%20fill='white'%20font-weight='700'/%3e%3c!--%20Gradient%20definition%20--%3e%3cdefs%3e%3clinearGradient%20id='logoGradient'%20x1='0%25'%20y1='0%25'%20x2='100%25'%20y2='100%25'%3e%3cstop%20offset='0%25'%20style='stop-color:%236366f1;stop-opacity:1'%20/%3e%3cstop%20offset='100%25'%20style='stop-color:%238b5cf6;stop-opacity:1'%20/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e" alt="Logo" height="32" class="d-inline-block align-text-top me-2">
+                        <h1 class="h4 mb-0 fw-bold text-primary">Metis</h1>
                     </a>
 
-                    <!-- Thanh tìm kiếm -->
+                    <!-- Search Bar with Alpine.js -->
                     <div class="search-container flex-grow-1 mx-4" x-data="searchComponent">
                         <div class="position-relative">
-                            <input type="search" class="form-control" placeholder="Tìm kiếm... (Ctrl+K)" x-model="query"
-                                @input="search()" data-search-input aria-label="Search">
+                            <input type="search" 
+                                   class="form-control" 
+                                   placeholder="Search... (Ctrl+K)"
+                                   x-model="query"
+                                   @input="search()"
+                                   data-search-input
+                                   aria-label="Search">
                             <i class="bi bi-search position-absolute top-50 end-0 translate-middle-y me-3"></i>
-
-                            <!-- Danh sách kết quả tìm kiếm -->
-                            <div x-show="results.length > 0" x-transition:enter="transition ease-out duration-100"
-                                x-transition:enter-start="opacity-0 scale-95"
-                                x-transition:enter-end="opacity-100 scale-100"
-                                class="position-absolute top-100 start-0 w-100 bg-white border rounded-2 shadow-lg mt-1 z-3">
+                            
+                            <!-- Search Results Dropdown -->
+                            <div x-show="results.length > 0" 
+                                 x-transition:enter="transition ease-out duration-100"
+                                 x-transition:enter-start="opacity-0 scale-95"
+                                 x-transition:enter-end="opacity-100 scale-100"
+                                 class="position-absolute top-100 start-0 w-100 bg-white border rounded-2 shadow-lg mt-1 z-3">
                                 <template x-for="result in results" :key="result.title">
-                                    <a :href="result.url"
-                                        class="d-block px-3 py-2 text-decoration-none text-dark border-bottom">
+                                    <a :href="result.url" class="d-block px-3 py-2 text-decoration-none text-dark border-bottom">
                                         <div class="d-flex align-items-center">
                                             <i class="bi bi-file-text me-2 text-muted"></i>
                                             <span x-text="result.title"></span>
@@ -97,330 +93,273 @@
                         </div>
                     </div>
 
-                    <!-- Các biểu tượng bên phải -->
+                    <!-- Right Side Icons -->
                     <div class="navbar-nav flex-row">
-
-                        <!-- Chuyển đổi giao diện sáng/tối -->
+                        <!-- Theme Toggle with Alpine.js -->
                         <div x-data="themeSwitch">
-                            <button class="btn btn-outline-secondary me-2" type="button" @click="toggle()"
-                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Chuyển giao diện">
+                            <button class="btn btn-outline-secondary me-2" 
+                                    type="button" 
+                                    @click="toggle()"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom"
+                                    title="Toggle theme">
                                 <i class="bi bi-sun-fill" x-show="currentTheme === 'light'"></i>
                                 <i class="bi bi-moon-fill" x-show="currentTheme === 'dark'"></i>
                             </button>
                         </div>
 
-                        <!-- Bật/tắt toàn màn hình -->
-                        <button class="btn btn-outline-secondary me-2" type="button" data-fullscreen-toggle
-                            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Toàn màn hình">
+                        <!-- Fullscreen Toggle -->
+                        <button class="btn btn-outline-secondary me-2" 
+                                type="button" 
+                                data-fullscreen-toggle
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="bottom"
+                                title="Toggle fullscreen">
                             <i class="bi bi-arrows-fullscreen icon-hover"></i>
                         </button>
 
-                        <!-- Thông báo -->
+                        <!-- Notifications -->
                         <div class="dropdown me-2">
-                            <button class="btn btn-outline-secondary position-relative" type="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn btn-outline-secondary position-relative" 
+                                    type="button" 
+                                    data-bs-toggle="dropdown" 
+                                    aria-expanded="false">
                                 <i class="bi bi-bell"></i>
-                                <span
-                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                     3
                                 </span>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li>
-                                    <h6 class="dropdown-header">Thông báo</h6>
-                                </li>
-                                <li><a class="dropdown-item" href="#">Có người dùng mới đăng ký</a></li>
-                                <li><a class="dropdown-item" href="#">Cập nhật trạng thái máy chủ</a></li>
-                                <li><a class="dropdown-item" href="#">Bạn có tin nhắn mới</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item text-center" href="#">Xem tất cả thông báo</a></li>
+                                <li><h6 class="dropdown-header">Notifications</h6></li>
+                                <li><a class="dropdown-item" href="#">New user registered</a></li>
+                                <li><a class="dropdown-item" href="#">Server status update</a></li>
+                                <li><a class="dropdown-item" href="#">New message received</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-center" href="#">View all notifications</a></li>
                             </ul>
                         </div>
 
-                        <!-- Menu người dùng -->
+                        <!-- User Menu -->
                         <div class="dropdown">
-                            <button class="btn btn-outline-secondary d-flex align-items-center" type="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-
-                                <!-- Avatar -->
-                                <img src="data:image/svg+xml,%3csvg%20width='32'%20height='32'%20viewBox='0%200%2032%2032'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3ccircle%20cx='16'%20cy='16'%20r='16'%20fill='url(%23avatarGradient)'/%3e%3cg%20fill='white'%20opacity='0.9'%3e%3ccircle%20cx='16'%20cy='12'%20r='5'/%3e%3cpath%20d='M16%2018c-5.5%200-10%202.5-10%207v1h20v-1c0-4.5-4.5-7-10-7z'/%3e%3c/g%3e%3ccircle%20cx='16'%20cy='16'%20r='15.5'%20fill='none'%20stroke='rgba(255,255,255,0.2)'%20stroke-width='1'/%3e%3cdefs%3e%3clinearGradient%20id='avatarGradient'%20x1='0%25'%20y1='0%25'%20x2='100%25'%20y2='100%25'%3e%3cstop%20offset='0%25'%20style='stop-color:%236b7280;stop-opacity:1'%20/%3e%3cstop%20offset='100%25'%20style='stop-color:%234b5563;stop-opacity:1'%20/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e"
-                                    alt="User Avatar" width="24" height="24" class="rounded-circle me-2">
-
-                                <!-- Tên user -->
-                                <span class="d-none d-md-inline">Quản trị viên</span>
+                            <button class="btn btn-outline-secondary d-flex align-items-center" 
+                                    type="button" 
+                                    data-bs-toggle="dropdown" 
+                                    aria-expanded="false">
+                                <img src="data:image/svg+xml,%3csvg%20width='32'%20height='32'%20viewBox='0%200%2032%2032'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3c!--%20Background%20circle%20--%3e%3ccircle%20cx='16'%20cy='16'%20r='16'%20fill='url(%23avatarGradient)'/%3e%3c!--%20Person%20silhouette%20--%3e%3cg%20fill='white'%20opacity='0.9'%3e%3c!--%20Head%20--%3e%3ccircle%20cx='16'%20cy='12'%20r='5'/%3e%3c!--%20Body%20--%3e%3cpath%20d='M16%2018c-5.5%200-10%202.5-10%207v1h20v-1c0-4.5-4.5-7-10-7z'/%3e%3c/g%3e%3c!--%20Subtle%20border%20--%3e%3ccircle%20cx='16'%20cy='16'%20r='15.5'%20fill='none'%20stroke='rgba(255,255,255,0.2)'%20stroke-width='1'/%3e%3c!--%20Gradient%20definition%20--%3e%3cdefs%3e%3clinearGradient%20id='avatarGradient'%20x1='0%25'%20y1='0%25'%20x2='100%25'%20y2='100%25'%3e%3cstop%20offset='0%25'%20style='stop-color:%236b7280;stop-opacity:1'%20/%3e%3cstop%20offset='100%25'%20style='stop-color:%234b5563;stop-opacity:1'%20/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e" 
+                                     alt="User Avatar" 
+                                     width="24" 
+                                     height="24" 
+                                     class="rounded-circle me-2">
+                                <span class="d-none d-md-inline">John Doe</span>
                                 <i class="bi bi-chevron-down ms-1"></i>
                             </button>
-
-                            <!-- Dropdown menu -->
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="bi bi-person me-2"></i> Hồ sơ cá nhân
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="bi bi-gear me-2"></i> Cài đặt hệ thống
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-
-                                <li>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="bi bi-box-arrow-right me-2"></i> Đăng xuất
-                                    </a>
-                                </li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Profile</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Settings</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
                             </ul>
                         </div>
-
                     </div>
                 </div>
             </nav>
         </header>
 
-        <!-- Thanh điều hướng bên trái -->
+        <!-- Sidebar -->
         <aside class="admin-sidebar" id="admin-sidebar">
             <div class="sidebar-content">
                 <nav class="sidebar-nav">
                     <ul class="nav flex-column">
-
-                        <!-- Trang tổgn quan -->
                         <li class="nav-item">
                             <a class="nav-link active" href="./index.html">
                                 <i class="bi bi-speedometer2"></i>
-                                <span>Trang tổng quan</span>
+                                <span>Dashboard</span>
                             </a>
                         </li>
-
-                        <!-- Phân tích dữ liệu -->
                         <li class="nav-item">
                             <a class="nav-link" href="./analytics.html">
                                 <i class="bi bi-graph-up"></i>
-                                <span>Phân tích dữ liệu</span>
+                                <span>Analytics</span>
                             </a>
                         </li>
-
-                        <!-- Người dùng -->
                         <li class="nav-item">
                             <a class="nav-link" href="./users.html">
                                 <i class="bi bi-people"></i>
-                                <span>Người dùng</span>
+                                <span>Users</span>
                             </a>
                         </li>
-
-                        <!-- Sự kiện -->
                         <li class="nav-item">
                             <a class="nav-link" href="./products.html">
                                 <i class="bi bi-box"></i>
-                                <span>Sự kiện</span>
+                                <span>Products</span>
                             </a>
                         </li>
-
-                        <!-- Vé -->
                         <li class="nav-item">
                             <a class="nav-link" href="./orders.html">
                                 <i class="bi bi-bag-check"></i>
-                                <span>Vé</span>
+                                <span>Orders</span>
                             </a>
                         </li>
-
-                        <!-- Biểu mẫu -->
                         <li class="nav-item">
                             <a class="nav-link" href="./forms.html">
                                 <i class="bi bi-ui-checks"></i>
-                                <span>Biểu mẫu</span>
-                                <span class="badge bg-success rounded-pill ms-auto">Mới</span>
+                                <span>Forms</span>
+                                <span class="badge bg-success rounded-pill ms-auto">New</span>
                             </a>
                         </li>
-
-                        <!-- Thành phần UI -->
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#elementsSubmenu"
-                                aria-expanded="false">
+                            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#elementsSubmenu" aria-expanded="false">
                                 <i class="bi bi-puzzle"></i>
-                                <span>Thành phần UI</span>
-                                <span class="badge bg-primary rounded-pill me-2">Mới</span>
+                                <span>Elements</span>
+                                <span class="badge bg-primary rounded-pill ms-2 me-2">New</span>
                                 <i class="bi bi-chevron-down ms-auto"></i>
                             </a>
-
                             <div class="collapse" id="elementsSubmenu">
                                 <ul class="nav nav-submenu">
-
                                     <li class="nav-item">
                                         <a class="nav-link" href="./elements.html">
                                             <i class="bi bi-grid"></i>
-                                            <span>Tổng quan</span>
+                                            <span>Overview</span>
                                         </a>
                                     </li>
-
                                     <li class="nav-item">
                                         <a class="nav-link" href="./elements-buttons.html">
                                             <i class="bi bi-square"></i>
-                                            <span>Nút bấm</span>
+                                            <span>Buttons</span>
                                         </a>
                                     </li>
-
                                     <li class="nav-item">
                                         <a class="nav-link" href="./elements-alerts.html">
                                             <i class="bi bi-exclamation-triangle"></i>
-                                            <span>Thông báo cảnh báo</span>
+                                            <span>Alerts</span>
                                         </a>
                                     </li>
-
                                     <li class="nav-item">
                                         <a class="nav-link" href="./elements-badges.html">
                                             <i class="bi bi-award"></i>
-                                            <span>Huy hiệu</span>
+                                            <span>Badges</span>
                                         </a>
                                     </li>
-
                                     <li class="nav-item">
                                         <a class="nav-link" href="./elements-cards.html">
                                             <i class="bi bi-card-text"></i>
-                                            <span>Thẻ thông tin</span>
+                                            <span>Cards</span>
                                         </a>
                                     </li>
-
                                     <li class="nav-item">
                                         <a class="nav-link" href="./elements-modals.html">
                                             <i class="bi bi-window"></i>
-                                            <span>Cửa sổ pop-up</span>
+                                            <span>Modals</span>
                                         </a>
                                     </li>
-
                                     <li class="nav-item">
                                         <a class="nav-link" href="./elements-forms.html">
                                             <i class="bi bi-ui-checks"></i>
-                                            <span>Biểu mẫu</span>
+                                            <span>Forms</span>
                                         </a>
                                     </li>
-
                                     <li class="nav-item">
                                         <a class="nav-link" href="./elements-tables.html">
                                             <i class="bi bi-table"></i>
-                                            <span>Bảng dữ liệu</span>
+                                            <span>Tables</span>
                                         </a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
-
-                        <!-- Báo cáo -->
                         <li class="nav-item">
                             <a class="nav-link" href="./reports.html">
                                 <i class="bi bi-file-earmark-text"></i>
-                                <span>Báo cáo</span>
+                                <span>Reports</span>
                             </a>
                         </li>
-
-                        <!-- Tin nhắn -->
                         <li class="nav-item">
                             <a class="nav-link" href="./messages.html">
                                 <i class="bi bi-chat-dots"></i>
-                                <span>Tin nhắn</span>
+                                <span>Messages</span>
                                 <span class="badge bg-danger rounded-pill ms-auto">3</span>
                             </a>
                         </li>
-
-                        <!-- Lịch -->
                         <li class="nav-item">
                             <a class="nav-link" href="./calendar.html">
                                 <i class="bi bi-calendar-event"></i>
-                                <span>Lịch</span>
+                                <span>Calendar</span>
                             </a>
                         </li>
-
-                        <!-- Các tẹp tài liệu -->
                         <li class="nav-item">
                             <a class="nav-link" href="./files.html">
                                 <i class="bi bi-folder2-open"></i>
-                                <span>Tệp tài liệu</span>
+                                <span>Files</span>
                             </a>
                         </li>
-
-                        <!-- Tiêu đề Quản trị hệ thống-->
                         <li class="nav-item mt-3">
-                            <small class="text-muted px-3 text-uppercase fw-bold">Quản trị hệ thống</small>
+                            <small class="text-muted px-3 text-uppercase fw-bold">Admin</small>
                         </li>
-
-                        <!-- Cài đặt -->
                         <li class="nav-item">
                             <a class="nav-link" href="./settings.html">
                                 <i class="bi bi-gear"></i>
-                                <span>Cài đặt</span>
+                                <span>Settings</span>
                             </a>
                         </li>
-
-                        <!-- Bảo mật -->
                         <li class="nav-item">
                             <a class="nav-link" href="./security.html">
                                 <i class="bi bi-shield-check"></i>
-                                <span>Bảo mật</span>
+                                <span>Security</span>
                             </a>
                         </li>
-
-                        <!-- Trợ giúp -->
                         <li class="nav-item">
                             <a class="nav-link" href="./help.html">
                                 <i class="bi bi-question-circle"></i>
-                                <span>Hỗ trợ & Trợ giúp</span>
+                                <span>Help & Support</span>
                             </a>
                         </li>
-
                     </ul>
                 </nav>
             </div>
         </aside>
 
-        <!-- Nút mở/đóng Sidebar -->
-        <button class="hamburger-menu" type="button" data-sidebar-toggle aria-label="Mở menu quản lý sự kiện">
+        <!-- Floating Hamburger Menu -->
+        <button class="hamburger-menu" 
+                type="button" 
+                data-sidebar-toggle
+                aria-label="Toggle sidebar">
             <i class="bi bi-list"></i>
         </button>
 
-        <!-- Khu vực nội dung chính của trang dashboard -->
+        <!-- Main Content -->
         <main class="admin-main">
             <div class="container-fluid p-4 p-lg-5">
-
-                <!-- Tiêu đề trang -->
+                <!-- Page Header -->
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <div>
-                        <h1 class="h3 mb-0">Trang tổng quan</h1>
-                        <p class="text-muted mb-0">Chào mừng bạn quay lại! Đây là tình hình hoạt động của hệ thống bán vé sự
-                            kiện.</p>
+                        <h1 class="h3 mb-0">Dashboard</h1>
+                        <p class="text-muted mb-0">Welcome back! Here's what's happening.</p>
                     </div>
-
                     <div class="d-flex gap-2">
-                        <button type="button" class="btn btn-primary">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newItemModal">
                             <i class="bi bi-plus-lg me-2"></i>
-                            Tạo sự kiện mới
+                            New Item
                         </button>
-
-                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip"
-                            title="Làm mới dữ liệu">
+                        <button type="button" class="btn btn-outline-secondary" 
+                                data-bs-toggle="tooltip" 
+                                title="Refresh data">
                             <i class="bi bi-arrow-clockwise icon-hover"></i>
                         </button>
-
-                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip"
-                            title="Xuất dữ liệu">
+                        <button type="button" class="btn btn-outline-secondary" 
+                                data-bs-toggle="tooltip" 
+                                title="Export data">
                             <i class="bi bi-download icon-hover"></i>
                         </button>
-
-                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip"
-                            title="Cài đặt hệ thống">
+                        <button type="button" class="btn btn-outline-secondary" 
+                                data-bs-toggle="tooltip" 
+                                title="Settings">
                             <i class="bi bi-gear icon-hover"></i>
                         </button>
                     </div>
                 </div>
 
-                <!-- Thẻ thống kê: Chứa các thẻ thống kê số liệu quan trọng -->
+                <!-- Stats Cards with Alpine.js -->
                 <div class="row g-4 mb-4">
-
-                    <!-- Tổng người tham gia -->
                     <div class="col-xl-3 col-lg-6" x-data="statsCounter(12426, 5)">
                         <div class="card stats-card">
                             <div class="card-body">
@@ -431,7 +370,7 @@
                                         </div>
                                     </div>
                                     <div class="flex-grow-1 ms-3">
-                                        <h6 class="mb-0 text-muted">Tổng người tham gia</h6>
+                                        <h6 class="mb-0 text-muted">Total Users</h6>
                                         <h3 class="mb-0" x-text="value.toLocaleString()" data-stat-value>12,426</h3>
                                         <small class="text-success">
                                             <i class="bi bi-arrow-up"></i> +12.5%
@@ -442,7 +381,6 @@
                         </div>
                     </div>
 
-                    <!-- Doanh thu -->
                     <div class="col-xl-3 col-lg-6">
                         <div class="card stats-card">
                             <div class="card-body">
@@ -453,8 +391,8 @@
                                         </div>
                                     </div>
                                     <div class="flex-grow-1 ms-3">
-                                        <h6 class="mb-0 text-muted">Doanh thu vé</h6>
-                                        <h3 class="mb-0">54,320,000đ</h3>
+                                        <h6 class="mb-0 text-muted">Revenue</h6>
+                                        <h3 class="mb-0">$54,320</h3>
                                         <small class="text-success">
                                             <i class="bi bi-arrow-up"></i> +8.2%
                                         </small>
@@ -464,18 +402,17 @@
                         </div>
                     </div>
 
-                    <!-- Tổng số vé đã bán được -->
                     <div class="col-xl-3 col-lg-6">
                         <div class="card stats-card">
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
                                     <div class="flex-shrink-0">
                                         <div class="stats-icon bg-warning bg-opacity-10 text-warning">
-                                            <i class="bi bi-ticket-perforated"></i>
+                                            <i class="bi bi-bag-check"></i>
                                         </div>
                                     </div>
                                     <div class="flex-grow-1 ms-3">
-                                        <h6 class="mb-0 text-muted">Vé đã bán</h6>
+                                        <h6 class="mb-0 text-muted">Orders</h6>
                                         <h3 class="mb-0">1,852</h3>
                                         <small class="text-danger">
                                             <i class="bi bi-arrow-down"></i> -2.1%
@@ -486,18 +423,17 @@
                         </div>
                     </div>
 
-                    <!-- Thời gian phản hồi của hệ thống -->
                     <div class="col-xl-3 col-lg-6">
                         <div class="card stats-card">
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
                                     <div class="flex-shrink-0">
                                         <div class="stats-icon bg-info bg-opacity-10 text-info">
-                                            <i class="bi bi-speedometer2"></i>
+                                            <i class="bi bi-clock-history"></i>
                                         </div>
                                     </div>
                                     <div class="flex-grow-1 ms-3">
-                                        <h6 class="mb-0 text-muted">Thời gian phản hồi</h6>
+                                        <h6 class="mb-0 text-muted">Avg. Response</h6>
                                         <h3 class="mb-0">2.3s</h3>
                                         <small class="text-success">
                                             <i class="bi bi-arrow-up"></i> +5.4%
@@ -507,24 +443,19 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
 
-                <!-- Khu vực biểu đồ: Vùng hiển thị các biểu đồ dữ liệu -->
+                <!-- Chart Section -->
                 <div class="row g-4 mb-4">
                     <div class="col-lg-8">
                         <div class="card">
                             <div class="card-header d-flex justify-content-between align-items-center">
-                                <h5 class="card-title mb-0">Biểu đồ doanh thu</h5>
+                                <h5 class="card-title mb-0">Revenue Overview</h5>
                                 <div class="btn-group btn-group-sm" role="group">
-                                    <button type="button" class="btn btn-outline-primary active" data-chart-period="7d">7
-                                        ngày</button>
-                                    <button type="button" class="btn btn-outline-primary" data-chart-period="30d">30
-                                        ngày</button>
-                                    <button type="button" class="btn btn-outline-primary" data-chart-period="90d">90
-                                        ngày</button>
-                                    <button type="button" class="btn btn-outline-primary" data-chart-period="1y">1
-                                        năm</button>
+                                    <button type="button" class="btn btn-outline-primary active" data-chart-period="7d">7D</button>
+                                    <button type="button" class="btn btn-outline-primary" data-chart-period="30d">30D</button>
+                                    <button type="button" class="btn btn-outline-primary" data-chart-period="90d">90D</button>
+                                    <button type="button" class="btn btn-outline-primary" data-chart-period="1y">1Y</button>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -533,59 +464,52 @@
                         </div>
                     </div>
 
-                    <!-- Hoạt động gần đây của người dùng -->
                     <div class="col-lg-4">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="card-title mb-0">Hoạt động gần đây</h5>
+                                <h5 class="card-title mb-0">Recent Activity</h5>
                             </div>
                             <div class="card-body">
                                 <div class="activity-feed">
-
                                     <div class="activity-item">
                                         <div class="activity-icon bg-primary bg-opacity-10 text-primary">
                                             <i class="bi bi-person-plus"></i>
                                         </div>
                                         <div class="activity-content">
-                                            <p class="mb-1">Người dùng mới đăng ký</p>
-                                            <small class="text-muted">2 phút trước</small>
+                                            <p class="mb-1">New user registered</p>
+                                            <small class="text-muted">2 minutes ago</small>
                                         </div>
                                     </div>
-
                                     <div class="activity-item">
                                         <div class="activity-icon bg-success bg-opacity-10 text-success">
-                                            <i class="bi bi-ticket-check"></i>
+                                            <i class="bi bi-bag-check"></i>
                                         </div>
                                         <div class="activity-content">
-                                            <p class="mb-1">Đơn vé #1234 đã hoàn tất</p>
-                                            <small class="text-muted">5 phút trước</small>
+                                            <p class="mb-1">Order #1234 completed</p>
+                                            <small class="text-muted">5 minutes ago</small>
                                         </div>
                                     </div>
-
                                     <div class="activity-item">
                                         <div class="activity-icon bg-warning bg-opacity-10 text-warning">
                                             <i class="bi bi-exclamation-triangle"></i>
                                         </div>
                                         <div class="activity-content">
-                                            <p class="mb-1">Lịch bảo trì hệ thống</p>
-                                            <small class="text-muted">1 giờ trước</small>
+                                            <p class="mb-1">Server maintenance scheduled</p>
+                                            <small class="text-muted">1 hour ago</small>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
 
-                <!-- Các biểu đồ bổ sung: Chứa các biểu đồ phụ -->
+                <!-- Additional Charts Row -->
                 <div class="row g-4 mb-4">
-
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="card-title mb-0">Tăng trưởng người dùng (7 ngày qua)</h5>
+                                <h5 class="card-title mb-0">User Growth (Last 7 Days)</h5>
                             </div>
                             <div class="card-body">
                                 <canvas id="userGrowthChart" height="200"></canvas>
@@ -596,39 +520,37 @@
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="card-title mb-0">Tỷ lệ trạng thái đơn vé</h5>
+                                <h5 class="card-title mb-0">Order Status Distribution</h5>
                             </div>
                             <div class="card-body">
                                 <canvas id="orderStatusChart" height="200"></canvas>
                             </div>
                         </div>
                     </div>
-
                 </div>
 
-                <!-- Hàng Widgets mới: Chứa các widget thông tin, như bảng đơn vé gần đây -->
+                <!-- New Widgets Row -->
                 <div class="row g-4 mb-4">
-
-                    <!-- Đơn vé gần đây: Liệt kê các đơn đặt vé mới nhất -->
+                    <!-- Recent Orders -->
                     <div class="col-lg-8">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="card-title mb-0">Đơn vé gần đây</h5>
+                                <h5 class="card-title mb-0">Recent Orders</h5>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-hover mb-0">
                                         <thead class="table-light">
                                             <tr>
-                                                <th>Mã đơn</th>
-                                                <th>Người mua</th>
-                                                <th>Số tiền</th>
-                                                <th>Trạng thái</th>
-                                                <th>Ngày</th>
+                                                <th>Order ID</th>
+                                                <th>Customer</th>
+                                                <th>Amount</th>
+                                                <th>Status</th>
+                                                <th>Date</th>
                                             </tr>
                                         </thead>
                                         <tbody id="recent-orders-table">
-                                            <!-- Dữ liệu đơn vé sẽ được tải lên từ dashboard.js -->
+                                            <!-- Orders will be injected here by dashboard.js -->
                                         </tbody>
                                     </table>
                                 </div>
@@ -636,11 +558,11 @@
                         </div>
                     </div>
 
-                    <!-- Tình trạng lưu trữ: Widget hiển thị dung lượng và tình trạng lưu trữ -->
+                    <!-- Storage Status -->
                     <div class="col-lg-4">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="card-title mb-0">Tình trạng lưu trữ</h5>
+                                <h5 class="card-title mb-0">Storage Status</h5>
                             </div>
                             <div class="card-body">
                                 <div id="storageStatusChart"></div>
@@ -649,12 +571,12 @@
                     </div>
                 </div>
 
-                <!-- Doanh thu được phân chia theo từng vùng -->
+                <!-- Sales by Location -->
                 <div class="row g-4">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="card-title mb-0">Doanh thu theo khu vực</h5>
+                                <h5 class="card-title mb-0">Sales by Location</h5>
                             </div>
                             <div class="card-body">
                                 <div id="salesByLocationChart" style="min-height: 400px; width: 100%;"></div>
@@ -666,163 +588,248 @@
             </div>
         </main>
 
-        <!-- Chân trang: Hiển thị thông tin bản quyền và phiên bản -->
+        <!-- Footer -->
         <footer class="admin-footer">
             <div class="container-fluid">
                 <div class="row">
-
                     <div class="col-md-6">
-                        <p class="mb-0 text-muted">© 2025 Hệ thống quản lý bán vé sự kiện UEH</p>
+                        <p class="mb-0 text-muted">© 2025 Modern Bootstrap Admin Template</p>
                     </div>
-
                     <div class="col-md-6 text-md-end">
-                        <p class="mb-0 text-muted">Phát triển trên nền Bootstrap 5.3.7</p>
+                        <p class="mb-0 text-muted">Built with Bootstrap 5.3.7</p>
                     </div>
-
                 </div>
             </div>
         </footer>
+        </div> <!-- /.admin-wrapper -->
+    </div>
 
-    </div> 
-    <!-- Kết thúc wrapper chính của Admin: Đóng thẻ div bao quanh toàn bộ giao diện admin -->
-
-    <!-- Khung hiển thị thông báo Toast: Hiển thị các thông báo pop-up -->
+    <!-- Toast Container -->
     <div aria-live="polite" aria-atomic="true" class="position-fixed top-0 end-0 p-3" style="z-index: 11">
         <div id="toast-container"></div>
     </div>
 
-    <!-- Hộp thoại minh hoạ biểu tượng -->
+
+    <!-- Icon Demo Modal -->
     <div class="modal fade" id="iconDemoModal" tabindex="-1">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">
-                        <i class="bi bi-ticket-perforated me-2"></i>
-                        Hệ thống biểu tượng – Dashboard Sự kiện
+                        <i class="bi bi-palette me-2"></i>
+                        Icon System Demo
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-
                 <div class="modal-body" x-data="iconDemo">
-                    <!-- Thư viện biểu tượng -->
                     <div class="row mb-4">
                         <div class="col-md-6">
-                            <h6>Thư viện icon hiện tại:
-                                <span class="badge bg-primary" x-text="currentProvider"></span>
-                            </h6>
-
+                            <h6>Current Provider: <span class="badge bg-primary" x-text="currentProvider"></span></h6>
                             <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-outline-primary"
-                                    @click="switchProvider('bootstrap')"
-                                    :class="{ 'active': currentProvider === 'bootstrap' }">Bootstrap Icons</button>
-
-                                <button type="button" class="btn btn-outline-primary"
-                                    @click="switchProvider('lucide')"
-                                    :class="{ 'active': currentProvider === 'lucide' }">Lucide Icons</button>
+                                <button type="button" 
+                                        class="btn btn-outline-primary"
+                                        @click="switchProvider('bootstrap')"
+                                        :class="{ 'active': currentProvider === 'bootstrap' }">
+                                    Bootstrap Icons
+                                </button>
+                                <button type="button" 
+                                        class="btn btn-outline-primary"
+                                        @click="switchProvider('lucide')"
+                                        :class="{ 'active': currentProvider === 'lucide' }">
+                                    Lucide Icons
+                                </button>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Hiển thị các icon minh họa cho dashboard (Tổng quan, Sự kiện, Người tham dự…) -->
+                    
                     <div class="row g-3">
                         <div class="col-md-3 text-center">
                             <div class="p-3 border rounded">
                                 <i class="bi bi-speedometer2 icon-xl text-primary mb-2"></i>
-                                <br>
-                                <small>Tổng quan</small>
+                                <br><small>Dashboard</small>
                             </div>
                         </div>
-
                         <div class="col-md-3 text-center">
                             <div class="p-3 border rounded">
-                                <i class="bi bi-calendar-event icon-xl text-success mb-2"></i>
-                                <br>
-                                <small>Sự kiện</small>
+                                <i class="bi bi-people icon-xl text-success mb-2"></i>
+                                <br><small>Users</small>
                             </div>
                         </div>
-
                         <div class="col-md-3 text-center">
                             <div class="p-3 border rounded">
-                                <i class="bi bi-people-fill icon-xl text-info mb-2"></i>
-                                <br>
-                                <small>Người tham dự</small>
+                                <i class="bi bi-graph-up icon-xl text-info mb-2"></i>
+                                <br><small>Analytics</small>
                             </div>
                         </div>
-
                         <div class="col-md-3 text-center">
                             <div class="p-3 border rounded">
-                                <i class="bi bi-receipt-cutoff icon-xl text-warning mb-2"></i>
-                                <br>
-                                <small>Đơn hàng / Vé bán</small>
+                                <i class="bi bi-gear icon-xl text-warning mb-2"></i>
+                                <br><small>Settings</small>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Hiệu ứng: Hiệu ứng áp dụng lên icon (Spin, Pulse, Hover, Static) -->
-                    <h6 class="mt-4">Hiệu ứng icon</h6>
+                    
+                    <h6 class="mt-4">Icon Animations</h6>
                     <div class="row g-3">
                         <div class="col-md-3 text-center">
-                            <i class="bi bi-arrow-clockwise icon-xl icon-spin text-primary"></i><br>
-                            <small>Spin</small>
+                            <i class="bi bi-arrow-clockwise icon-xl icon-spin text-primary"></i>
+                            <br><small>Spin</small>
                         </div>
-
                         <div class="col-md-3 text-center">
-                            <i class="bi bi-heart-fill icon-xl icon-pulse text-danger"></i><br>
-                            <small>Pulse</small>
+                            <i class="bi bi-heart icon-xl icon-pulse text-danger"></i>
+                            <br><small>Pulse</small>
                         </div>
-
                         <div class="col-md-3 text-center">
-                            <i class="bi bi-star-fill icon-xl icon-hover text-warning"></i><br>
-                            <small>Hover</small>
+                            <i class="bi bi-star icon-xl icon-hover text-warning"></i>
+                            <br><small>Hover Effect</small>
                         </div>
-
                         <div class="col-md-3 text-center">
-                            <i class="bi bi-check-circle-fill icon-xl text-success"></i><br>
-                            <small>Static</small>
+                            <i class="bi bi-check-circle icon-xl text-success"></i>
+                            <br><small>Static</small>
                         </div>
                     </div>
                 </div>
-
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        <i class="bi bi-x me-2"></i>Đóng
+                        <i class="bi bi-x me-2"></i>Close
                     </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Script bật/ tắt Sidebar: Mở/đóng sidebar, lưu trạng thái hiện tại vào localStorage, và gán sự kiện click cho nút toggle -->
+    <!-- Scripts -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const toggleButton = document.querySelector('[data-sidebar-toggle]');
-            const wrapper = document.getElementById('admin-wrapper');
+      document.addEventListener('DOMContentLoaded', () => {
+        const toggleButton = document.querySelector('[data-sidebar-toggle]');
+        const wrapper = document.getElementById('admin-wrapper');
 
-            if (toggleButton && wrapper) {
-                // Load trạng thái sidebar
-                const isCollapsed = localStorage.getItem('sidebar-collapsed') === 'true';
-                if (isCollapsed) {
-                    wrapper.classList.add('sidebar-collapsed');
-                    toggleButton.classList.add('is-active');
-                }
+        if (toggleButton && wrapper) {
+          // Set initial state from localStorage
+          const isCollapsed = localStorage.getItem('sidebar-collapsed') === 'true';
+          if (isCollapsed) {
+            wrapper.classList.add('sidebar-collapsed');
+            toggleButton.classList.add('is-active');
+          }
 
-                // Sự kiện click
-                toggleButton.addEventListener('click', () => {
-                    const isCurrentlyCollapsed = wrapper.classList.contains('sidebar-collapsed');
-
-                    if (isCurrentlyCollapsed) {
-                        wrapper.classList.remove('sidebar-collapsed');
-                        toggleButton.classList.remove('is-active');
-                        localStorage.setItem('sidebar-collapsed', 'false');
-                    } else {
-                        wrapper.classList.add('sidebar-collapsed');
-                        toggleButton.classList.add('is-active');
-                        localStorage.setItem('sidebar-collapsed', 'true');
-                    }
-                });
+          // Attach click listener
+          toggleButton.addEventListener('click', () => {
+            const isCurrentlyCollapsed = wrapper.classList.contains('sidebar-collapsed');
+            
+            if (isCurrentlyCollapsed) {
+              wrapper.classList.remove('sidebar-collapsed');
+              toggleButton.classList.remove('is-active');
+              localStorage.setItem('sidebar-collapsed', 'false');
+            } else {
+              wrapper.classList.add('sidebar-collapsed');
+              toggleButton.classList.add('is-active');
+              localStorage.setItem('sidebar-collapsed', 'true');
             }
-        });
+          });
+        }
+      });
     </script>
-</body>
 
-</html>
+    <!-- New Item Modal -->
+    <div class="modal fade" id="newItemModal" tabindex="-1" aria-labelledby="newItemModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title" id="newItemModalLabel">
+                        <i class="bi bi-plus-circle text-primary me-2"></i>
+                        Quick Add
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" x-data="quickAddForm()">
+                    <p class="text-muted small mb-4">Create a new item quickly from the dashboard.</p>
+
+                    <!-- Item Type Selection -->
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">What would you like to add?</label>
+                        <div class="btn-group w-100" role="group">
+                            <button type="button" class="btn btn-outline-primary btn-sm"
+                                    :class="{ 'active': itemType === 'task' }"
+                                    @click="itemType = 'task'">
+                                <i class="bi bi-check2-square"></i> Task
+                            </button>
+                            <button type="button" class="btn btn-outline-success btn-sm"
+                                    :class="{ 'active': itemType === 'note' }"
+                                    @click="itemType = 'note'">
+                                <i class="bi bi-sticky"></i> Note
+                            </button>
+                            <button type="button" class="btn btn-outline-info btn-sm"
+                                    :class="{ 'active': itemType === 'event' }"
+                                    @click="itemType = 'event'">
+                                <i class="bi bi-calendar-event"></i> Event
+                            </button>
+                            <button type="button" class="btn btn-outline-warning btn-sm"
+                                    :class="{ 'active': itemType === 'reminder' }"
+                                    @click="itemType = 'reminder'">
+                                <i class="bi bi-bell"></i> Reminder
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Title -->
+                    <div class="mb-3">
+                        <label for="itemTitle" class="form-label fw-semibold">Title</label>
+                        <input type="text" class="form-control" id="itemTitle" x-model="title"
+                               placeholder="Enter a title..." autofocus>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="mb-3">
+                        <label for="itemDescription" class="form-label fw-semibold">Description</label>
+                        <textarea class="form-control" id="itemDescription" rows="3" x-model="description"
+                                  placeholder="Add some details..."></textarea>
+                    </div>
+
+                    <!-- Priority (shown for tasks) -->
+                    <div class="mb-3" x-show="itemType === 'task'" x-transition>
+                        <label class="form-label fw-semibold d-block">Priority</label>
+                        <div class="btn-group" role="group" aria-label="Priority selection">
+                            <input type="radio" class="btn-check" name="priorityRadio" id="priorityLow" value="low" x-model="priority" autocomplete="off">
+                            <label class="btn btn-outline-success btn-sm" for="priorityLow">
+                                <i class="bi bi-flag"></i> Low
+                            </label>
+                            <input type="radio" class="btn-check" name="priorityRadio" id="priorityMedium" value="medium" x-model="priority" autocomplete="off">
+                            <label class="btn btn-outline-warning btn-sm" for="priorityMedium">
+                                <i class="bi bi-flag-fill"></i> Medium
+                            </label>
+                            <input type="radio" class="btn-check" name="priorityRadio" id="priorityHigh" value="high" x-model="priority" autocomplete="off">
+                            <label class="btn btn-outline-danger btn-sm" for="priorityHigh">
+                                <i class="bi bi-flag-fill"></i> High
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Date (shown for events/reminders) -->
+                    <div class="mb-3" x-show="itemType === 'event' || itemType === 'reminder'" x-transition>
+                        <label for="itemDate" class="form-label fw-semibold">Date & Time</label>
+                        <input type="datetime-local" class="form-control" id="itemDate" x-model="dateTime">
+                    </div>
+
+                    <!-- Assign to (shown for tasks) -->
+                    <div class="mb-3" x-show="itemType === 'task'" x-transition>
+                        <label for="assignTo" class="form-label fw-semibold">Assign to</label>
+                        <select class="form-select" id="assignTo" x-model="assignee">
+                            <option value="">Select team member...</option>
+                            <option value="john">John Doe</option>
+                            <option value="jane">Jane Smith</option>
+                            <option value="mike">Mike Johnson</option>
+                            <option value="sarah">Sarah Williams</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 pt-0">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" @click="saveItem()" data-bs-dismiss="modal">
+                        <i class="bi bi-check-lg me-1"></i> Create Item
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

@@ -3,31 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản lý sự kiện</title>
+    <title>Quản lý sự kiện | UEH Event Hub</title>
     
-    <!-- Thẻ Meta SEO -->
     <meta name="description" content="Quản lý sự kiện UEH toàn diện với theo dõi vé, danh mục và thống kê">
     <meta name="keywords" content="UEH, sự kiện, đặt vé, quản trị, dashboard">
     
-    <!-- Biểu tượng trang (Favicon) -->
-    <link rel="icon" type="image/svg+xml" href="./assets/favicon-CvUZKS4z.svg">
-    <link rel="icon" type="image/png" href="./assets/favicon-B_cwPWBd.png">
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
     
-    <!-- Manifest cho Progressive Web App (PWA) -->
-    <link rel="manifest" href="./assets/manifest-DTaoG9pG.json">
-    
-    <!-- Tải trước font quan trọng -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Thư viện ApexCharts -->
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script type="module" crossorigin src="./assets/vendor-bootstrap-C9iorZI5.js"></script>
-    <script type="module" crossorigin src="./assets/vendor-charts-DGwYAWel.js"></script>
-    <script type="module" crossorigin src="./assets/vendor-ui-DjYv-mAO.js"></script>
-    <script type="module" crossorigin src="./assets/main-BHbn44Op.js"></script>
-    <script type="module" crossorigin src="./assets/products-BRKQL37B.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/main-QD_VOj1Y.css">
+
+
+  <script type="module" crossorigin src="./assets/vendor-bootstrap-C9iorZI5.js"></script>
+  <script type="module" crossorigin src="./assets/vendor-charts-DGwYAWel.js"></script>
+  <script type="module" crossorigin src="./assets/vendor-ui-DjYv-mAO.js"></script>
+  <script type="module" crossorigin src="./assets/main-CdVtVaPX.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/main-kLYUWtMo.css">
 </head>
 
 <body data-page="products" class="product-management">
@@ -455,101 +448,62 @@
                                     <!-- Bảng dữ liệu -->
                                     <div class="table-responsive">
                                         <table class="table table-hover mb-0">
-                                            <thead class="table-light">
-                                                <tr>
-                                                    <th style="width: 40px;">
-                                                        <input type="checkbox" 
-                                                            class="form-check-input" 
-                                                            @change="toggleAll($event.target.checked)"
-                                                            :checked="selectedProducts.length === filteredProducts.length && filteredProducts.length > 0">
-                                                    </th>
-                                                    <th>Sự kiện</th>
-                                                    <th @click="sortBy('category')" class="sortable">Danh mục</th>
-                                                    <th @click="sortBy('price')" class="sortable">Giá vé</th>
-                                                    <th @click="sortBy('stock')" class="sortable">Số vé</th>
-                                                    <th>Trạng thái</th>
-                                                    <th @click="sortBy('created')" class="sortable">Ngày tạo</th>
-                                                    <th style="width: 120px;">Thao tác</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <template x-for="product in paginatedProducts" :key="product.id">
-                                                    <tr>
-                                                        <td>
-                                                            <input type="checkbox" 
-                                                                class="form-check-input" 
-                                                                :value="product.id"
-                                                                x-model="selectedProducts">
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-flex align-items-center">
-                                                                <img :src="product.image" 
-                                                                    class="product-image me-3" 
-                                                                    :alt="product.name">
-                                                                <div>
-                                                                    <div class="fw-medium" x-text="product.name"></div>
-                                                                    <small class="text-muted" x-text="'Mã sự kiện: ' + product.sku"></small>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <span class="badge bg-light text-dark" x-text="product.category"></span>
-                                                        </td>
-                                                        <td x-text="`$${product.price}`"></td>
-                                                        <td>
-                                                            <span class="badge stock-badge" 
-                                                                :class="{
-                                                                    'in-stock': product.stock > 20,
-                                                                    'low-stock': product.stock > 0 && product.stock <= 20,
-                                                                    'out-of-stock': product.stock === 0
-                                                                }"
-                                                                x-text="product.stock + ' vé'"></span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="badge" 
-                                                                :class="{
-                                                                    'bg-success': product.status === 'published',
-                                                                    'bg-secondary': product.status === 'draft',
-                                                                    'bg-warning': product.status === 'pending'
-                                                                }"
-                                                                x-text="product.status"></span>
-                                                        </td>
-                                                        <td x-text="product.created"></td>
-                                                        <td>
-                                                            <div class="dropdown">
-                                                                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" 
-                                                                        type="button" 
-                                                                        data-bs-toggle="dropdown">
-                                                                    <i class="bi bi-three-dots"></i>
-                                                                </button>
-                                                                <ul class="dropdown-menu">
-                                                                    <li>
-                                                                        <a class="dropdown-item" href="#" @click="editProduct(product)">
-                                                                            <i class="bi bi-pencil me-2"></i>Chỉnh sửa
-                                                                        </a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="dropdown-item" href="#" @click="viewProduct(product)">
-                                                                            <i class="bi bi-eye me-2"></i>Xem chi tiết
-                                                                        </a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="dropdown-item" href="#" @click="duplicateProduct(product)">
-                                                                            <i class="bi bi-copy me-2"></i>Nhân bản
-                                                                        </a>
-                                                                    </li>
-                                                                    <li><hr class="dropdown-divider"></li>
-                                                                    <li>
-                                                                        <a class="dropdown-item text-danger" href="#" @click="deleteProduct(product)">
-                                                                            <i class="bi bi-trash me-2"></i>Xoá
-                                                                        </a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </template>
-                                            </tbody>
+                    <thead class="table-light">
+                        <tr>
+                            <th style="width: 40px;">STT</th>
+                            <th>Tên sự kiện / Đơn vị tổ chức</th>
+                            <th>Đối tượng</th>
+                            <th>Thời gian & Địa điểm</th>
+                            <th>Hình thức</th>
+                            <th>Giá vé</th>
+                            <th>Vé còn</th>
+                            <th>Trạng thái</th>
+                            <th style="width: 100px;">Thao tác</th>
+                        </tr>
+                    </thead>
+                                                                <tbody>
+                        <template x-for="(product, index) in paginatedProducts" :key="product.id">
+                            <tr>
+                                <td x-text="index + 1 + (currentPage - 1) * itemsPerPage"></td>
+                                
+                                <td>
+                                    <div class="fw-bold text-primary" x-text="product.name"></div>
+                                    <small class="text-muted" x-text="product.organizer"></small>
+                                </td>
+
+                                <td x-text="product.target"></td>
+
+                                <td>
+                                    <div class="small"><i class="bi bi-clock me-1"></i> <span x-text="product.datetime"></span></div>
+                                    <div class="small text-muted"><i class="bi bi-geo-alt me-1"></i> <span x-text="product.location"></span></div>
+                                </td>
+
+                                <td>
+                                    <span class="badge bg-info-subtle text-info" x-text="product.type"></span>
+                                </td>
+
+                                <td class="fw-medium" x-text="product.price == 0 ? 'Miễn phí' : product.price.toLocaleString() + 'đ'"></td>
+
+                                <td>
+                                    <span class="badge" 
+                                        :class="product.stock > 10 ? 'bg-success-subtle text-success' : 'bg-danger-subtle text-danger'"
+                                        x-text="product.stock"></span>
+                                </td>
+
+                                <td>
+                                    <span class="badge" :class="product.status === 'published' ? 'bg-success' : 'bg-secondary'" 
+                                        x-text="product.status === 'published' ? 'Công khai' : 'Nháp'"></span>
+                                </td>
+
+                                <td>
+                                    <div class="btn-group btn-group-sm">
+                                        <button class="btn btn-outline-primary" @click="editProduct(product)"><i class="bi bi-pencil"></i></button>
+                                        <button class="btn btn-outline-danger" @click="deleteProduct(product)"><i class="bi bi-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </template>
+                    </tbody>
                                         </table>
                                     </div>
 
@@ -686,8 +640,8 @@
                         </div>
                         <div class="alert alert-info">
                             <i class="bi bi-info-circle me-2"></i>
-                            <strong>Định dạng CSV:</strong> name, sku, category, price, stock, status<br>
-                            <small>Ví dụ: Hội thảo AI, AI-UEH-01, workshop, 0, 300, published</small>
+                            <strong>Định dạng CSV:</strong> Stt, Tên sự kiện, Đơn vị tổ chức, Đối tượng tham gia, Ảnh/video sự kiện, Thời gian diễn ra, Địa điểm, Hình thức, Mô tả ngắn, Mô tả chi tiết, Giá vé, Số lượng vé còn, Quyền lợi, Quy định thêm<br>
+                            <small>Ví dụ: 1, AI trong doanh nghiệp – Từ chatbots đến tự động hóa, Workshop, ..., ..., Link, 18g00 – 20g30, Ngày 16/10/2025, B1.204, Trực tiếp, ..., ..., Miễn phí, 70, ..., ...</small>
                         </div>
                     </div>
                     <div class="modal-footer">
