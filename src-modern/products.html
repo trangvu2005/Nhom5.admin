@@ -533,7 +533,92 @@
                             </div>
                             
                         </div> <!-- Kết thúc khu vực quản lý sự kiện -->
+                        <div class="card mt-5" x-data="promoCodeManager">
+    <div class="card-header d-flex justify-content-between align-items-center bg-white py-3">
+        <h5 class="card-title mb-0 fw-bold"><i class="bi bi-ticket-perforated me-2"></i>Danh sách mã khuyến mãi</h5>
+        <button class="btn btn-primary btn-sm" @click="openAddModal()">
+            <i class="bi bi-plus-lg me-1"></i>Thêm mã mới
+        </button>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th style="width: 100px;">STT Sự kiện</th>
+                    <th>Mã khuyến mãi</th>
+                    <th>Giá trị giảm</th>
+                    <th>Hạn sử dụng</th>
+                    <th style="width: 120px;">Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template x-for="(promo, index) in promoCodes" :key="index">
+                    <tr>
+                        <td class="text-center fw-bold text-primary" x-text="promo.eventOrder"></td>
+                        <td><code class="px-2 py-1 bg-light border rounded text-danger fw-bold" x-text="promo.code"></code></td>
+                        <td x-text="promo.discountType === 'percent' ? promo.discountValue + '%' : promo.discountValue.toLocaleString() + 'đ'"></td>
+                        <td>
+                            <span :class="new Date(promo.expiry) < new Date() ? 'text-danger' : 'text-success'">
+                                <i class="bi bi-calendar-event me-1"></i>
+                                <span x-text="promo.expiry"></span>
+                            </span>
+                        </td>
+                        <td>
+                            <div class="btn-group btn-group-sm">
+                                <button class="btn btn-outline-secondary" @click="editPromo(index)"><i class="bi bi-pencil"></i></button>
+                                <button class="btn btn-outline-danger" @click="deletePromo(index)"><i class="bi bi-trash"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </div>
 
+    <div class="modal fade" id="promoModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" x-text="isEdit ? 'Chỉnh sửa mã' : 'Thêm mã mới'"></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form @submit.prevent="savePromo">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">STT Sự kiện</label>
+                                <input type="number" class="form-control" x-model="form.eventOrder" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">Mã (Code)</label>
+                                <input type="text" class="form-control text-uppercase" x-model="form.code" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">Loại giảm</label>
+                                <select class="form-select" x-model="form.discountType">
+                                    <option value="percent">Phần trăm (%)</option>
+                                    <option value="fixed">Số tiền (đ)</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">Giá trị</label>
+                                <input type="number" class="form-control" x-model="form.discountValue" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label fw-semibold">Ngày hết hạn</label>
+                                <input type="date" class="form-control" x-model="form.expiry" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer px-0 pb-0 mt-3">
+                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy</button>
+                            <button type="submit" class="btn btn-primary">Lưu thông tin</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
                     </div>
                 </main>
 

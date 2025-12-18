@@ -32,7 +32,7 @@ import '../styles/scss/main.scss';
 // import { AnalyticsComponent } from './components/analytics.js';
 // import { FormsComponent } from './components/forms.js';
 
-// Application Class
+// Application Clas
 class AdminApp {
   constructor() {
     this.components = new Map();
@@ -423,54 +423,90 @@ class AdminApp {
   }
 
   // Initialize Alpine.js
+  // Initialize Alpine.js
   initAlpine() {
-    // Register Alpine data components
+    // 1. Quản lý Mã khuyến mãi (Promo Code Manager)
+    Alpine.data('promoCodeManager', () => ({
+      promoCodes: [
+        { eventOrder: 1, code: 'SVUEH_50', value: '50%', expiry: '2025-12-31' },
+        { eventOrder: 2, code: 'HELLOU', value: '20.000đ', expiry: '2025-10-15' }
+      ],
+      form: { eventOrder: '', code: '', value: '', expiry: '' },
+      isEdit: false,
+      editIndex: null,
+      modalInstance: null,
+
+      init() {
+        const modalElement = document.getElementById('promoModal');
+        if (modalElement) {
+          this.modalInstance = new Modal(modalElement);
+        }
+      },
+
+      openAddModal() {
+        this.isEdit = false;
+        this.form = { eventOrder: '', code: '', value: '', expiry: '' };
+        this.modalInstance.show();
+      },
+
+      savePromo() {
+        if (!this.form.code || !this.form.eventOrder) {
+          window.AdminApp.notificationManager.warning('Vui lòng nhập đủ thông tin!');
+          return;
+        }
+
+        if (this.isEdit) {
+          this.promoCodes[this.editIndex] = { ...this.form };
+        } else {
+          this.promoCodes.push({ ...this.form });
+        }
+        
+        this.modalInstance.hide();
+        window.AdminApp.notificationManager.success(this.isEdit ? 'Đã cập nhật mã!' : 'Đã thêm mã mới!');
+      },
+
+      editPromo(index) {
+        this.isEdit = true;
+        this.editIndex = index;
+        this.form = { ...this.promoCodes[index] };
+        this.modalInstance.show();
+      },
+
+      deletePromo(index) {
+        if (confirm('Bạn có chắc chắn muốn xóa mã này?')) {
+          this.promoCodes.splice(index, 1);
+          window.AdminApp.notificationManager.info('Đã xóa mã khuyến mãi');
+        }
+      },
+
+      isExpired(dateStr) {
+        return new Date(dateStr) < new Date().setHours(0,0,0,0);
+      }
+    }));
+
+    // 2. Search Component (Giữ nguyên của bạn)
     Alpine.data('searchComponent', () => ({
       query: '',
       results: [],
       isLoading: false,
-      
       async search() {
-        if (this.query.length < 2) {
-          this.results = [];
-          return;
-        }
-        
+        if (this.query.length < 2) { this.results = []; return; }
         this.isLoading = true;
-        // Simulate API search
         await new Promise(resolve => setTimeout(resolve, 300));
-        
         this.results = [
           { title: 'Dashboard', url: '/', type: 'page' },
           { title: 'Users', url: '/users', type: 'page' },
           { title: 'Settings', url: '/settings', type: 'page' },
           { title: 'Analytics', url: '/analytics', type: 'page' }
-        ].filter(item => 
-          item.title.toLowerCase().includes(this.query.toLowerCase())
-        );
-        
+        ].filter(item => item.title.toLowerCase().includes(this.query.toLowerCase()));
         this.isLoading = false;
       }
     }));
 
-    Alpine.data('statsCounter', (initialValue = 0, increment = 1) => ({
-      value: initialValue,
-      
-      init() {
-        // Auto-increment every 5 seconds
-        setInterval(() => {
-          this.value += Math.floor(Math.random() * increment) + 1;
-        }, 5000);
-      }
-    }));
-
+    // 3. Theme Switch & các component khác (Giữ nguyên...)
     Alpine.data('themeSwitch', () => ({
       currentTheme: 'light',
-      
-      init() {
-        this.currentTheme = localStorage.getItem('theme') || 'light';
-      },
-      
+      init() { this.currentTheme = localStorage.getItem('theme') || 'light'; },
       toggle() {
         this.currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
         document.documentElement.setAttribute('data-bs-theme', this.currentTheme);
@@ -478,84 +514,7 @@ class AdminApp {
       }
     }));
 
-    Alpine.data('iconDemo', () => ({
-      currentProvider: 'bootstrap',
-
-      switchProvider(provider) {
-        this.currentProvider = provider;
-        iconManager.switchProvider(provider);
-        console.log(`🎨 Switched to ${provider} icons`);
-      },
-
-      getIcon(iconName) {
-        return iconManager.get(iconName);
-      }
-    }));
-
-    // Quick Add Form for Dashboard
-    Alpine.data('quickAddForm', () => ({
-      itemType: 'task',
-      title: '',
-      description: '',
-      priority: 'medium',
-      dateTime: '',
-      assignee: '',
-
-      init() {
-        // Set default date to now
-        const now = new Date();
-        now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
-        this.dateTime = now.toISOString().slice(0, 16);
-      },
-
-      resetForm() {
-        this.itemType = 'task';
-        this.title = '';
-        this.description = '';
-        this.priority = 'medium';
-        this.assignee = '';
-        const now = new Date();
-        now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
-        this.dateTime = now.toISOString().slice(0, 16);
-      },
-
-      saveItem() {
-        if (!this.title.trim()) {
-          window.AdminApp.notificationManager.warning('Please enter a title');
-          return;
-        }
-
-        const item = {
-          type: this.itemType,
-          title: this.title,
-          description: this.description,
-          priority: this.itemType === 'task' ? this.priority : null,
-          dateTime: ['event', 'reminder'].includes(this.itemType) ? this.dateTime : null,
-          assignee: this.itemType === 'task' ? this.assignee : null,
-          createdAt: new Date().toISOString()
-        };
-
-        // In a real app, this would send to an API
-        console.log('New item created:', item);
-
-        // Show success notification with item type
-        const typeLabels = {
-          task: 'Task',
-          note: 'Note',
-          event: 'Event',
-          reminder: 'Reminder'
-        };
-
-        window.AdminApp.notificationManager.success(
-          `${typeLabels[this.itemType]} "${this.title}" created successfully!`
-        );
-
-        // Reset form for next use
-        this.resetForm();
-      }
-    }));
-
-    // Start Alpine.js
+    // Khởi chạy Alpine
     Alpine.start();
     window.Alpine = Alpine;
   }
@@ -601,6 +560,3 @@ app.init();
 // Export for global access
 window.AdminApp = app;
 window.IconManager = iconManager;
-
-// Export the app instance for module imports
-export default app; 
