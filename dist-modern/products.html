@@ -19,8 +19,8 @@
   <script type="module" crossorigin src="./assets/vendor-bootstrap-C9iorZI5.js"></script>
   <script type="module" crossorigin src="./assets/vendor-charts-DGwYAWel.js"></script>
   <script type="module" crossorigin src="./assets/vendor-ui-DjYv-mAO.js"></script>
-  <script type="module" crossorigin src="./assets/main-ah3zAXUV.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/main-kLYUWtMo.css">
+  <script type="module" crossorigin src="./assets/main-Xj-7h8FN.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/main-DlFev91u.css">
 </head>
 
 <body data-page="products" class="product-management">
@@ -234,18 +234,18 @@
                         <!-- Tiêu đề trang -->
                         <div class="d-flex justify-content-between align-items-center mb-4 mb-lg-5">
                             <div>
-                                <h1 class="h3 mb-0">Quản lý sự kiện</h1>
-                                <p class="text-muted mb-0">Quản lý danh sách sự kiện và vé tham gia</p>
+                                <h1 class="h3 mb-0 fw-bold">QUẢN LÝ SỰ KIỆN</h1>
+                                <p class="text-muted mb-0">Quản lý danh sách sự kiện và danh sách mã khuyến mãi</p>
                             </div>
                             <div class="d-flex gap-2">
                                 <button type="button" class="btn btn-outline-secondary" @click="exportProducts()">
-                                    <i class="bi bi-download me-2"></i>Xuất dữ liệu
+                                    <i class="bi bi-download me-2 fw-bold"></i>Xuất dữ liệu
                                 </button>
                                 <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#importModal">
-                                    <i class="bi bi-upload me-2"></i>Nhập dữ liệu
+                                    <i class="bi bi-upload me-2 fw-bold"></i>Nhập dữ liệu
                                 </button>
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal">
-                                    <i class="bi bi-plus-lg me-2"></i>Thêm sự kiện
+                                    <i class="bi bi-plus-lg me-2 fw-bold"></i>Thêm sự kiện
                                 </button>
                             </div>
                         </div>
@@ -540,9 +540,6 @@
     <div class="card-header d-flex justify-content-between align-items-center bg-white py-3">
         <h5 class="card-title mb-0 fw-bold"><i class="bi bi-ticket-perforated me-2"></i>Danh sách mã khuyến mãi</h5>
         <div class="card-header d-flex justify-content-between align-items-center bg-white py-3">
-    <h5 class="card-title mb-0 fw-bold">
-        <i class="bi bi-ticket-perforated me-2"></i>Danh sách mã khuyến mãi
-    </h5>
     <a href="add-promo.html" class="btn btn-primary btn-sm">
         <i class="bi bi-plus-lg me-1"></i>Thêm mã mới
     </a>
@@ -552,7 +549,7 @@
         <table class="table table-hover align-middle mb-0">
             <thead class="table-light">
                 <tr>
-                    <th style="width: 100px;">STT Sự kiện</th>
+                    <th style="width: 100px;">Mã áp dụng cho sự kiện STT</th>
                     <th>Mã khuyến mãi</th>
                     <th>Giá trị giảm</th>
                     <th>Hạn sử dụng</th>
@@ -592,9 +589,6 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <p class="mb-0 text-muted">© 2025 UEH Event Hub</p>
-                            </div>
-                            <div class="col-md-6 text-md-end">
-                                <p class="mb-0 text-muted">Xây dựng với Bootstrap 5.3.7</p>
                             </div>
                         </div>
                     </div>

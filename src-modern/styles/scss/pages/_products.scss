@@ -31,7 +31,7 @@
     &:hover {
       border-color: var(--bs-primary);
       transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(167, 236, 41, 0.15);
+      box-shadow: 0 8px 25px rgba(218, 119, 178, 0.15);
     }
 
     &.selected {
@@ -187,12 +187,12 @@
 }
 // Đổi màu nút "Thêm sự kiện"
 .btn-primary {
-    background-color: #6f42c1 !important; // Màu tím
+    background-color: #006B6F !important; // Màu tím
     border-color: #6f42c1 !important;
 }
 
 // Đổi màu nút "Xuất dữ liệu"
 .btn-outline-secondary {
-    color: #ff5722 !important;
-    border-color: #ff5722 !important;
+    color: #006B6F !important;
+    border-color: #d2cdcd !important;
 }

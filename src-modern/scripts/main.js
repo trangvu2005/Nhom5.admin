@@ -427,7 +427,12 @@ class AdminApp {
     // 1. Quản lý Mã khuyến mãi (Promo Code Manager)
     Alpine.data('promoCodeManager', () => ({
   // Thay vì để mảng cố định, hãy lấy từ LocalStorage
-  promoCodes: JSON.parse(localStorage.getItem('myPromos') || '[]'),
+  defaultPromos: [
+    { eventOrder: 1, code: 'SVUEH_50', value: '50%', expiry: '2025-12-31' },
+    { eventOrder: 2, code: 'SUKIENHOT', value: '20.000đ', expiry: '2025-10-15' },
+    { eventOrder: 3, code: 'TETDONGDAY', value: '15%', expiry: '2025-12-01' }
+  ],
+  promoCodes: [],
   
   form: { eventOrder: '', code: '', value: '', expiry: '' },
       isEdit: false,
@@ -435,35 +440,12 @@ class AdminApp {
       modalInstance: null,
 
       init() {
-        const modalElement = document.getElementById('promoModal');
-        if (modalElement) {
-          // KHẮC PHỤC LỖI MÀN HÌNH TỐI: Khởi tạo modal với cấu hình chuẩn
-          this.modalInstance = new Modal(modalElement, {
-            backdrop: true,
-            keyboard: true
-          });
-
-          // Đảm bảo z-index của modal luôn nằm trên lớp phủ tối
-          modalElement.addEventListener('show.bs.modal', () => {
-            setTimeout(() => {
-              const backdrop = document.querySelector('.modal-backdrop');
-              if (backdrop) {
-                backdrop.style.zIndex = '1040';
-                modalElement.style.zIndex = '1055';
-              }
-            }, 0);
-          });
-
-          // Dọn dẹp hoàn toàn lớp phủ khi đóng để tránh bị đơ màn hình
-          modalElement.addEventListener('hidden.bs.modal', () => {
-            document.body.classList.remove('modal-open');
-            document.body.style.overflow = '';
-            document.body.style.paddingRight = '';
-            const backdrop = document.querySelector('.modal-backdrop');
-            if (backdrop) backdrop.remove();
-          });
-        }
-      },
+    // Lấy mã người dùng tự thêm từ máy
+    const userPromos = JSON.parse(localStorage.getItem('myPromos') || '[]');
+    
+    // Gộp mã mặc định và mã người dùng vào làm một danh sách hiển thị
+    this.promoCodes = [...this.defaultPromos, ...userPromos];
+  },
 
       openAddModal() {
         this.isEdit = false;
