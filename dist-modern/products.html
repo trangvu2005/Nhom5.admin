@@ -19,7 +19,7 @@
   <script type="module" crossorigin src="./assets/vendor-bootstrap-C9iorZI5.js"></script>
   <script type="module" crossorigin src="./assets/vendor-charts-DGwYAWel.js"></script>
   <script type="module" crossorigin src="./assets/vendor-ui-DjYv-mAO.js"></script>
-  <script type="module" crossorigin src="./assets/main-UaYXAxmq.js"></script>
+  <script type="module" crossorigin src="./assets/main-ah3zAXUV.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/main-kLYUWtMo.css">
 </head>
 
@@ -539,9 +539,14 @@
                         <div class="card mt-5" x-data="promoCodeManager">
     <div class="card-header d-flex justify-content-between align-items-center bg-white py-3">
         <h5 class="card-title mb-0 fw-bold"><i class="bi bi-ticket-perforated me-2"></i>Danh sách mã khuyến mãi</h5>
-        <button class="btn btn-primary btn-sm" @click="openAddModal()">
-            <i class="bi bi-plus-lg me-1"></i>Thêm mã mới
-        </button>
+        <div class="card-header d-flex justify-content-between align-items-center bg-white py-3">
+    <h5 class="card-title mb-0 fw-bold">
+        <i class="bi bi-ticket-perforated me-2"></i>Danh sách mã khuyến mãi
+    </h5>
+    <a href="add-promo.html" class="btn btn-primary btn-sm">
+        <i class="bi bi-plus-lg me-1"></i>Thêm mã mới
+    </a>
+</div>
     </div>
     <div class="table-responsive">
         <table class="table table-hover align-middle mb-0">
@@ -576,50 +581,6 @@
                 </template>
             </tbody>
         </table>
-    </div>
-
-    <div class="modal fade" id="promoModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content border-0 shadow-lg">
-                <div class="modal-header bg-primary text-white">
-                    <h5 class="modal-title" x-text="isEdit ? 'Chỉnh sửa mã' : 'Thêm mã mới'"></h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <form @submit.prevent="savePromo">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <label class="form-label fw-semibold">STT Sự kiện</label>
-                                <input type="number" class="form-control" x-model="form.eventOrder" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label fw-semibold">Mã (Code)</label>
-                                <input type="text" class="form-control text-uppercase" x-model="form.code" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label fw-semibold">Loại giảm</label>
-                                <select class="form-select" x-model="form.discountType">
-                                    <option value="percent">Phần trăm (%)</option>
-                                    <option value="fixed">Số tiền (đ)</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label fw-semibold">Giá trị</label>
-                                <input type="number" class="form-control" x-model="form.discountValue" required>
-                            </div>
-                            <div class="col-12">
-                                <label class="form-label fw-semibold">Ngày hết hạn</label>
-                                <input type="date" class="form-control" x-model="form.expiry" required>
-                            </div>
-                        </div>
-                        <div class="modal-footer px-0 pb-0 mt-3">
-                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy</button>
-                            <button type="submit" class="btn btn-primary">Lưu thông tin</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
                     </div>
@@ -768,5 +729,48 @@
             }
         });
         </script>
+    <div class="modal fade" id="promoModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" x-text="isEdit ? 'Chỉnh sửa mã' : 'Thêm mã mới'"></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form @submit.prevent="savePromo">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">STT Sự kiện</label>
+                                <input type="number" class="form-control" x-model="form.eventOrder" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">Mã (Code)</label>
+                                <input type="text" class="form-control text-uppercase" x-model="form.code" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">Loại giảm</label>
+                                <select class="form-select" x-model="form.discountType">
+                                    <option value="percent">Phần trăm (%)</option>
+                                    <option value="fixed">Số tiền (đ)</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">Giá trị</label>
+                                <input type="number" class="form-control" x-model="form.discountValue" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label fw-semibold">Ngày hết hạn</label>
+                                <input type="date" class="form-control" x-model="form.expiry" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer px-0 pb-0 mt-3">
+                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy</button>
+                            <button type="submit" class="btn btn-primary">Lưu thông tin</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     </body>
 </html>

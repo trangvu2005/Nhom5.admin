@@ -422,16 +422,14 @@ class AdminApp {
     });
   }
 
-  // Initialize Alpine.js
-  // Initialize Alpine.js
+ // Initialize Alpine.js
   initAlpine() {
     // 1. Quản lý Mã khuyến mãi (Promo Code Manager)
     Alpine.data('promoCodeManager', () => ({
-      promoCodes: [
-        { eventOrder: 1, code: 'SVUEH_50', value: '50%', expiry: '2025-12-31' },
-        { eventOrder: 2, code: 'HELLOU', value: '20.000đ', expiry: '2025-10-15' }
-      ],
-      form: { eventOrder: '', code: '', value: '', expiry: '' },
+  // Thay vì để mảng cố định, hãy lấy từ LocalStorage
+  promoCodes: JSON.parse(localStorage.getItem('myPromos') || '[]'),
+  
+  form: { eventOrder: '', code: '', value: '', expiry: '' },
       isEdit: false,
       editIndex: null,
       modalInstance: null,
@@ -439,14 +437,38 @@ class AdminApp {
       init() {
         const modalElement = document.getElementById('promoModal');
         if (modalElement) {
-          this.modalInstance = new Modal(modalElement);
+          // KHẮC PHỤC LỖI MÀN HÌNH TỐI: Khởi tạo modal với cấu hình chuẩn
+          this.modalInstance = new Modal(modalElement, {
+            backdrop: true,
+            keyboard: true
+          });
+
+          // Đảm bảo z-index của modal luôn nằm trên lớp phủ tối
+          modalElement.addEventListener('show.bs.modal', () => {
+            setTimeout(() => {
+              const backdrop = document.querySelector('.modal-backdrop');
+              if (backdrop) {
+                backdrop.style.zIndex = '1040';
+                modalElement.style.zIndex = '1055';
+              }
+            }, 0);
+          });
+
+          // Dọn dẹp hoàn toàn lớp phủ khi đóng để tránh bị đơ màn hình
+          modalElement.addEventListener('hidden.bs.modal', () => {
+            document.body.classList.remove('modal-open');
+            document.body.style.overflow = '';
+            document.body.style.paddingRight = '';
+            const backdrop = document.querySelector('.modal-backdrop');
+            if (backdrop) backdrop.remove();
+          });
         }
       },
 
       openAddModal() {
         this.isEdit = false;
         this.form = { eventOrder: '', code: '', value: '', expiry: '' };
-        this.modalInstance.show();
+        if (this.modalInstance) this.modalInstance.show();
       },
 
       savePromo() {
@@ -461,7 +483,7 @@ class AdminApp {
           this.promoCodes.push({ ...this.form });
         }
         
-        this.modalInstance.hide();
+        if (this.modalInstance) this.modalInstance.hide();
         window.AdminApp.notificationManager.success(this.isEdit ? 'Đã cập nhật mã!' : 'Đã thêm mã mới!');
       },
 
@@ -469,7 +491,7 @@ class AdminApp {
         this.isEdit = true;
         this.editIndex = index;
         this.form = { ...this.promoCodes[index] };
-        this.modalInstance.show();
+        if (this.modalInstance) this.modalInstance.show();
       },
 
       deletePromo(index) {
@@ -484,7 +506,7 @@ class AdminApp {
       }
     }));
 
-    // 2. Search Component (Giữ nguyên của bạn)
+    // 2. Search Component 
     Alpine.data('searchComponent', () => ({
       query: '',
       results: [],
@@ -503,7 +525,7 @@ class AdminApp {
       }
     }));
 
-    // 3. Theme Switch & các component khác (Giữ nguyên...)
+    // 3. Theme Switch 
     Alpine.data('themeSwitch', () => ({
       currentTheme: 'light',
       init() { this.currentTheme = localStorage.getItem('theme') || 'light'; },
@@ -514,7 +536,7 @@ class AdminApp {
       }
     }));
 
-    // Khởi chạy Alpine
+    // Quan trọng: Phải khởi chạy Alpine ở cuối hàm
     Alpine.start();
     window.Alpine = Alpine;
   }

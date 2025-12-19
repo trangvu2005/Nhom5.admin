@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm mã khuyến mãi mới</title>
+    <link rel="stylesheet" href="./styles/scss/main.scss">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Tạo mã khuyến mãi mới</h5>
+            </div>
+            <div class="card-body">
+                <form id="promoForm">
+    <div class="row g-3">
+        <div class="col-md-6">
+            <label class="form-label fw-semibold">STT Sự kiện</label>
+            <input type="number" id="eventOrder" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label fw-semibold">Mã (Code)</label>
+            <input type="text" id="code" class="form-control text-uppercase" required>
+        </div>
+        <div class="col-md-12">
+            <label class="form-label fw-semibold">Giá trị giảm</label>
+            <input type="text" id="value" class="form-control" placeholder="Ví dụ: 10% hoặc 50.000đ" required>
+        </div>
+        <div class="col-md-12">
+            <label class="form-label fw-semibold">Ngày hết hạn</label>
+            <input type="date" id="expiry" class="form-control" required>
+        </div>
+    </div>
+    <div class="mt-4 d-flex gap-2">
+        <button type="submit" class="btn btn-primary px-4">Lưu mã khuyến mãi</button>
+        <a href="products.html" class="btn btn-outline-secondary">Hủy bỏ</a>
+    </div>
+</form>
+
+<script>
+    document.getElementById('promoForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // 1. Lấy dữ liệu từ các ô input
+        const newPromo = {
+            eventOrder: document.getElementById('eventOrder').value,
+            code: document.getElementById('code').value.toUpperCase(),
+            value: document.getElementById('value').value,
+            expiry: document.getElementById('expiry').value
+        };
+
+        // 2. Lấy danh sách cũ từ LocalStorage (nếu có)
+        const existingPromos = JSON.parse(localStorage.getItem('myPromos') || '[]');
+        
+        // 3. Thêm mã mới vào danh sách
+        existingPromos.push(newPromo);
+        
+        // 4. Lưu ngược lại vào LocalStorage
+        localStorage.setItem('myPromos', JSON.stringify(existingPromos));
+
+        // 5. Quay về trang danh sách
+        window.location.href = 'products.html';
+    });
+</script>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -36,6 +36,7 @@ export default defineConfig({
         messages: resolve(__dirname, 'src-modern/messages.html'),
         orders: resolve(__dirname, 'src-modern/orders.html'),
         products: resolve(__dirname, 'src-modern/products.html'),
+        'add-promo': resolve(__dirname, 'src-modern/add-promo.html'),
         reports: resolve(__dirname, 'src-modern/reports.html'),
         security: resolve(__dirname, 'src-modern/security.html'),
         settings: resolve(__dirname, 'src-modern/settings.html'),
