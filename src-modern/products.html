@@ -18,6 +18,20 @@
     <link rel="stylesheet" href="./styles/scss/main.scss">
 
     <script type="module" src="./scripts/main.js"></script>
+    <style>
+    /* Ép tất cả các ô dữ liệu và tiêu đề trong bảng khuyến mãi vào chính giữa */
+    [x-data="promoCodeManager"] table th,
+    [x-data="promoCodeManager"] table td {
+        text-align: center !important;
+        vertical-align: middle !important;
+    }
+    
+    /* Căn chỉnh riêng cho cột Mã khuyến mãi để code block không bị dính lề */
+    [x-data="promoCodeManager"] table td code {
+        display: inline-block;
+        margin: 0 auto;
+    }
+</style>
 </head>
 
 <body data-page="products" class="product-management">
@@ -31,11 +45,7 @@
                     <div class="container-fluid">
                         <!-- Logo / Thương hiệu -->
                         <a class="navbar-brand d-flex align-items-center" href="./index.html">
-                            <img src="data:image/svg+xml,%3csvg%20width='32'%20height='32'%20viewBox='0%200%2032%2032'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3c/svg%3e" 
-                                 alt="Logo" 
-                                 height="32" 
-                                 class="d-inline-block align-text-top me-2">
-                            <h1 class="h4 mb-0 fw-bold text-primary">UEH Event Hub</h1>
+                            <h1 class="h4 mb-0 fw-bold text-primary"><b>UEH EVENT HUB</b></h1>
                         </a>
 
                         <!-- Thanh tìm kiếm (sử dụng Alpine.js) -->
@@ -401,10 +411,13 @@
                                                         @change="filterProducts()"
                                                         style="width: 150px;">
                                                     <option value="">Tất cả danh mục</option>
-                                                    <option value="electronics">Học thuật</option>
-                                                    <option value="clothing">Văn nghệ</option>
-                                                    <option value="books">Cuộc thi</option>
-                                                    <option value="home">Hội thảo</option>
+                                                    <option value="Workshop">Workshop</option>
+                                                    <option value="Webinar">Webinar</option>
+                                                    <option value="Talkshow">Talkshow</option>
+                                                    <option value="Cuộc thi">Cuộc thi</option>
+                                                    <option value="Ceremony">Ceremony</option>
+                                                    <option value="Festival">Festival</option>
+                                                    <option value="Văn hóa - Nghệ thuật">Văn hóa - Nghệ thuật</option>
                                                 </select>
                                                 
                                                 <!-- Lọc theo tình trạng vé -->
@@ -546,19 +559,20 @@
         <table class="table table-hover align-middle mb-0">
             <thead class="table-light">
                 <tr>
-                    <th style="width: 100px;">Mã áp dụng cho sự kiện STT</th>
-                    <th>Mã khuyến mãi</th>
-                    <th>Giá trị giảm</th>
-                    <th>Hạn sử dụng</th>
-                    <th style="width: 120px;">Hành động</th>
+                    <th class="text-center" style="width: 20%;">Mã áp dụng cho sự kiện STT</th>
+                    <th class="text-center" style="width: 20%;">Mã khuyến mãi</th>
+                    <th class="text-center" style="width: 20%;">Giá trị giảm</th>
+                    <th class="text-center" style="width: 20%;">Hạn sử dụng</th>
+                    <th class="text-center" style="width: 20%;">Hành động</th>
                 </tr>
+            </thead>
             </thead>
             <tbody>
                 <template x-for="(promo, index) in promoCodes" :key="index">
                     <tr>
-                        <td class="text-center fw-bold text-primary" x-text="promo.eventOrder"></td>
+                        <td class="text-center fw-bold text-primary" style="text-align: center !important;" x-text="promo.eventOrder"></td>
                         <td><code class="px-2 py-1 bg-light border rounded text-danger fw-bold" x-text="promo.code"></code></td>
-                        <td x-text="promo.discountType === 'percent' ? promo.discountValue + '%' : promo.discountValue.toLocaleString() + 'đ'"></td>
+                        <td class="text-center" x-text="promo.value || (promo.discountType === 'percent' ? promo.discountValue + '%' : promo.discountValue.toLocaleString() + 'đ')"></td>
                         <td>
                             <span :class="new Date(promo.expiry) < new Date() ? 'text-danger' : 'text-success'">
                                 <i class="bi bi-calendar-event me-1"></i>
@@ -616,11 +630,14 @@
                                 <div class="col-md-6">
                                     <label class="form-label">Danh mục</label>
                                     <select class="form-select" x-model="form.category" required>
-                                        <option value="">Chọn danh mục</option>
-                                        <option value="electronics">Học thuật</option>
-                                        <option value="clothing">Văn nghệ</option>
-                                        <option value="books">Cuộc thi</option>
-                                        <option value="home">Hội thảo</option>
+                                    <option value="">Chọn danh mục</option>
+                                    <option value="Workshop">Workshop</option>
+                                    <option value="Webinar">Webinar</option>
+                                    <option value="Talkshow">Talkshow</option>
+                                    <option value="Cuộc thi">Cuộc thi</option>
+                                    <option value="Ceremony">Ceremony</option>
+                                    <option vaxlue="Festival">Festival</option>
+                                    <option value="Văn hóa - Nghệ thuật">Văn hóa - Nghệ thuật</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6">
@@ -736,7 +753,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label fw-semibold">Mã (Code)</label>
-                                <input type="text" class="form-control text-uppercase" x-model="form.code" required>
+                                <input type="text" class="form-control text-uppercase text-center" x-model="form.code" required>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label fw-semibold">Loại giảm</label>
@@ -751,7 +768,7 @@
                             </div>
                             <div class="col-12">
                                 <label class="form-label fw-semibold">Ngày hết hạn</label>
-                                <input type="date" class="form-control" x-model="form.expiry" required>
+                                <input type="date" class="form-control text-center" x-model="form.expiry" required>
                             </div>
                         </div>
                         <div class="modal-footer px-0 pb-0 mt-3">

@@ -4,14 +4,16 @@
 
 // Primary Button Fixes - Ensure proper contrast and colors
 .btn-primary {
-  color: #fa1414 !important;
+  color: #006B6F !important;
   background-color: #{$primary};
   border-color: #{$primary};
   
   &:hover {
     color: #ffffff !important;
-    background-color: darken($primary, 8%);
-    border-color: darken($primary, 8%);
+    background-color: #006B6F!important; // Màu đỏ son môi khi di chuột vào
+    border-color: #000000 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
   }
   
   &:focus,
@@ -322,7 +324,19 @@
   font-size: 1.125rem;
   border-radius: var(--border-radius);
 }
+// Thêm định nghĩa cho nút Nhập/Xuất dữ liệu (Outline Secondary)
+.btn-outline-secondary {
+  color: $secondary;
+  border-color: $secondary;
 
+  &:hover {
+    color: #ffffff !important;
+    background-color: #006B6F!important; // Màu đỏ son môi khi di chuột vào
+    border-color: #000000 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  }
+}
 // Floating Action Button
 .btn-floating {
   border-radius: 50%;
@@ -368,8 +382,8 @@
     
     &:hover {
       color: #ffffff !important;
-      background-color: #6c757d;
-      border-color: #6c757d;
+      background-color: #006B6F;
+      border-color: #000000;
     }
   }
 }
