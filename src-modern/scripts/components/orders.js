@@ -38,393 +38,338 @@ document.addEventListener('alpine:init', () => {
 
     loadSampleData() {
       this.orders = [
-        {
-          id: 1,
-          orderNumber: 'ORD-2025-001',
-          customer: {
-            name: 'John Smith',
-            email: 'john@example.com',
-            avatar: '/assets/images/avatar-placeholder.svg'
-          },
-          items: [
-            { name: 'iPhone 14 Pro', quantity: 1, price: 999.99 }
-          ],
-          itemCount: 1,
-          total: 999.99,
-          status: 'pending',
-          orderDate: '2025-01-15',
-          shippingAddress: '123 Main St, City, State 12345'
+       {
+        id: 1,
+        orderNumber: 'VE-UEH-001',
+        customer: {
+            name: 'Nguyễn Văn An',
+            email: 'an.nguyen@st.ueh.edu.vn'
         },
-        {
-          id: 2,
-          orderNumber: 'ORD-2025-002',
-          customer: {
-            name: 'Sarah Johnson',
-            email: 'sarah@example.com',
-            avatar: '/assets/images/avatar-placeholder.svg'
-          },
-          items: [
-            { name: 'MacBook Air M2', quantity: 1, price: 1199.99 },
-            { name: 'Wireless Mouse', quantity: 1, price: 49.99 }
-          ],
-          itemCount: 2,
-          total: 1249.98,
-          status: 'processing',
-          orderDate: '2025-01-14',
-          shippingAddress: '456 Oak Ave, City, State 67890'
+        items: [{ name: 'AI Trong Doanh Nghiệp - Workshop', quantity: 1, price: 0 }],
+        itemCount: 1,
+        total: 0,
+        status: 'delivered', // Đã hoàn thành
+        orderDate: '2025-10-15',
+        shippingAddress: 'B1.204, UEH Cơ sở B'
+    },
+    {
+        id: 2,
+        orderNumber: 'VE-UEH-002',
+        customer: {
+            name: 'Lê Thị Bình',
+            email: 'binh.le@st.ueh.edu.vn'
         },
-        {
-          id: 3,
-          orderNumber: 'ORD-2025-003',
-          customer: {
-            name: 'Mike Davis',
-            email: 'mike@example.com',
-            avatar: '/assets/images/avatar-placeholder.svg'
-          },
-          items: [
-            { name: 'Cotton T-Shirt', quantity: 3, price: 24.99 }
-          ],
-          itemCount: 3,
-          total: 74.97,
-          status: 'shipped',
-          orderDate: '2025-01-13',
-          shippingAddress: '789 Pine St, City, State 54321'
+        items: [{ name: 'Storytelling Thời AI - Webinar', quantity: 1, price: 0 }],
+        itemCount: 1,
+        total: 0,
+        status: 'pending', // Đang chờ duyệt
+        orderDate: '2025-09-05',
+        shippingAddress: 'Trực tuyến qua Zoom'
+    },
+    {
+        id: 3,
+        orderNumber: 'VE-UEH-003',
+        customer: {
+            name: 'Trần Minh Chiến',
+            email: 'chien.tran@st.ueh.edu.vn'
         },
-        {
-          id: 4,
-          orderNumber: 'ORD-2025-004',
-          customer: {
-            name: 'Emily Brown',
-            email: 'emily@example.com',
-            avatar: '/assets/images/avatar-placeholder.svg'
-          },
-          items: [
-            { name: 'JavaScript Guide', quantity: 1, price: 39.99 },
-            { name: 'Python Cookbook', quantity: 1, price: 44.99 }
-          ],
-          itemCount: 2,
-          total: 84.98,
-          status: 'delivered',
-          orderDate: '2025-01-12',
-          shippingAddress: '321 Elm St, City, State 13579'
+        items: [{ name: 'Cuộc thi HORIZON 2025', quantity: 1, price: 10000 }],
+        itemCount: 1,
+        total: 10000,
+        status: 'processing', // Đang xử lý
+        orderDate: '2025-09-23',
+        shippingAddress: 'Online/Cơ sở UEH'
+    },
+    {
+        id: 4,
+        orderNumber: 'VE-UEH-004',
+        customer: {
+            name: 'Phạm Thu Dung',
+            email: 'dung.pham@st.ueh.edu.vn'
         },
-        {
-          id: 5,
-          orderNumber: 'ORD-2025-005',
-          customer: {
-            name: 'David Wilson',
-            email: 'david@example.com',
-            avatar: '/assets/images/avatar-placeholder.svg'
-          },
-          items: [
-            { name: 'Wireless Headphones', quantity: 1, price: 149.99 }
-          ],
-          itemCount: 1,
-          total: 149.99,
-          status: 'cancelled',
-          orderDate: '2025-01-11',
-          shippingAddress: '654 Maple Dr, City, State 24680'
+        items: [{ name: 'Cuộc thi DNA - EPIC CONTEST', quantity: 2, price: 10000 }],
+        itemCount: 2,
+        total: 20000,
+        status: 'shipped', // Đã phát hành vé
+        orderDate: '2025-09-20',
+        shippingAddress: 'UEH Quiz/Cơ sở B'
+    },
+    {
+        id: 5,
+        orderNumber: 'VE-UEH-005',
+        customer: {
+            name: 'Hoàng Minh Đức',
+            email: 'duc.hoang@st.ueh.edu.vn'
         },
-        {
-          id: 6,
-          orderNumber: 'ORD-2025-006',
-          customer: {
-            name: 'Lisa Anderson',
-            email: 'lisa@example.com',
-            avatar: '/assets/images/avatar-placeholder.svg'
-          },
-          items: [
-            { name: 'Smart Home Hub', quantity: 1, price: 199.99 },
-            { name: 'Smart Bulbs', quantity: 4, price: 19.99 }
-          ],
-          itemCount: 5,
-          total: 279.95,
-          status: 'processing',
-          orderDate: '2025-01-10',
-          shippingAddress: '987 Cedar Ln, City, State 97531'
+        items: [{ name: 'Lễ Hội Nối Vòng Tay Lớn 2025', quantity: 1, price: 0 }],
+        itemCount: 1,
+        total: 0,
+        status: 'cancelled', // Đã hủy vé
+        orderDate: '2025-10-08',
+        shippingAddress: 'Hội trường A.116'
+    },
+    {
+        id: 6,
+        orderNumber: 'VE-UEH-006',
+        customer: {
+            name: 'Đặng Thúy Hạnh',
+            email: 'hanh.dang@st.ueh.edu.vn'
         },
-        {
-          id: 7,
-          orderNumber: 'ORD-2025-007',
-          customer: {
-            name: 'Robert Martinez',
-            email: 'robert@example.com',
-            avatar: '/assets/images/avatar-placeholder.svg'
-          },
-          items: [
-            { name: 'Samsung Galaxy S24', quantity: 1, price: 899.99 }
-          ],
-          itemCount: 1,
-          total: 899.99,
-          status: 'pending',
-          orderDate: '2025-01-09',
-          shippingAddress: '456 Valley Rd, City, State 11223'
+        items: [{ name: 'Workshop Quản Lý Dự Án Chuyển Đổi Số', quantity: 1, price: 0 }],
+        itemCount: 1,
+        total: 0,
+        status: 'processing',
+        orderDate: '2024-11-20',
+        shippingAddress: 'UEH Cơ sở B'
+    },
+    {
+        id: 7,
+        orderNumber: 'VE-UEH-007',
+        customer: {
+            name: 'Bùi Anh Khoa',
+            email: 'khoa.bui@st.ueh.edu.vn'
         },
-        {
-          id: 8,
-          orderNumber: 'ORD-2025-008',
-          customer: {
-            name: 'Jennifer Taylor',
-            email: 'jennifer@example.com',
-            avatar: '/assets/images/avatar-placeholder.svg'
-          },
-          items: [
-            { name: 'Yoga Mat Premium', quantity: 2, price: 49.99 },
-            { name: 'Winter Jacket', quantity: 1, price: 189.99 }
-          ],
-          itemCount: 3,
-          total: 289.97,
-          status: 'shipped',
-          orderDate: '2025-01-08',
-          shippingAddress: '789 Mountain View Dr, City, State 44556'
+        items: [{ name: 'UEH CINEBOX - Sài Gòn, Anh Yêu Em', quantity: 2, price: 15000 }],
+        itemCount: 2,
+        total: 30000,
+        status: 'pending',
+        orderDate: '2025-10-05',
+        shippingAddress: 'Hội trường B1.302'
+    },
+    {
+        id: 8,
+        orderNumber: 'VE-UEH-008',
+        customer: {
+            name: 'Vũ Diệu Linh',
+            email: 'linh.vu@st.ueh.edu.vn'
         },
-        {
-          id: 9,
-          orderNumber: 'ORD-2025-009',
-          customer: {
-            name: 'Christopher Lee',
-            email: 'chris@example.com',
-            avatar: '/assets/images/avatar-placeholder.svg'
-          },
-          items: [
-            { name: 'React Handbook', quantity: 1, price: 54.99 },
-            { name: 'Node.js Complete Guide', quantity: 1, price: 59.99 },
-            { name: 'Docker Deep Dive', quantity: 1, price: 49.99 }
-          ],
-          itemCount: 3,
-          total: 164.97,
-          status: 'delivered',
-          orderDate: '2025-01-07',
-          shippingAddress: '123 Tech Street, City, State 77889'
+        items: [{ name: 'Talkshow Green Business Showcase', quantity: 1, price: 0 }],
+        itemCount: 1,
+        total: 0,
+        status: 'shipped',
+        orderDate: '2025-08-25',
+        shippingAddress: 'B1.302'
+    },
+    {
+        id: 9,
+        orderNumber: 'VE-UEH-009',
+        customer: {
+            name: 'Ngô Quốc Nam',
+            email: 'nam.ngo@st.ueh.edu.vn'
         },
-        {
-          id: 10,
-          orderNumber: 'ORD-2025-010',
-          customer: {
-            name: 'Amanda Clark',
-            email: 'amanda@example.com',
-            avatar: '/assets/images/avatar-placeholder.svg'
-          },
-          items: [
-            { name: 'Gaming Mouse RGB', quantity: 1, price: 79.99 },
-            { name: 'Mechanical Keyboard', quantity: 1, price: 159.99 }
-          ],
-          itemCount: 2,
-          total: 239.98,
-          status: 'processing',
-          orderDate: '2025-01-06',
-          shippingAddress: '321 Gaming Ave, City, State 99001'
+        items: [{ name: 'Du Lịch Và Cuộc Sống - LUMINARIS', quantity: 1, price: 0 }],
+        itemCount: 1,
+        total: 0,
+        status: 'delivered',
+        orderDate: '2025-11-28',
+        shippingAddress: 'Hội trường A.116'
+    },
+    {
+        id: 10,
+        orderNumber: 'VE-UEH-010',
+        customer: {
+            name: 'Lý Kim Oanh',
+            email: 'oanh.ly@st.ueh.edu.vn'
         },
-        {
-          id: 11,
-          orderNumber: 'ORD-2025-011',
-          customer: {
-            name: 'Daniel Rodriguez',
-            email: 'daniel@example.com',
-            avatar: '/assets/images/avatar-placeholder.svg'
-          },
-          items: [
-            { name: 'Coffee Maker Deluxe', quantity: 1, price: 249.99 }
-          ],
-          itemCount: 1,
-          total: 249.99,
-          status: 'pending',
-          orderDate: '2025-01-05',
-          shippingAddress: '654 Coffee St, City, State 33445'
+        items: [{ name: 'Talkshow An Toàn Tình Dục - CUDDLE', quantity: 1, price: 0 }],
+        itemCount: 1,
+        total: 0,
+        status: 'processing',
+        orderDate: '2025-12-14',
+        shippingAddress: 'B1.205'
+    },
+    {
+        id: 11,
+        orderNumber: 'VE-UEH-011',
+        customer: {
+            name: 'Đỗ Tiến Phát',
+            email: 'phat.do@st.ueh.edu.vn'
         },
-        {
-          id: 12,
-          orderNumber: 'ORD-2025-012',
-          customer: {
-            name: 'Michelle White',
-            email: 'michelle@example.com',
-            avatar: '/assets/images/avatar-placeholder.svg'
-          },
-          items: [
-            { name: 'Running Shoes', quantity: 1, price: 129.99 },
-            { name: 'Casual Polo Shirt', quantity: 2, price: 39.99 }
-          ],
-          itemCount: 3,
-          total: 209.97,
-          status: 'shipped',
-          orderDate: '2025-01-04',
-          shippingAddress: '987 Sports Blvd, City, State 55667'
+        items: [{ name: 'Talkshow Cyber Security - PIN', quantity: 1, price: 0 }],
+        itemCount: 1,
+        total: 0,
+        status: 'pending',
+        orderDate: '2025-11-12',
+        shippingAddress: 'Trực tuyến'
+    },
+    {
+        id: 12,
+        orderNumber: 'VE-UEH-012',
+        customer: {
+            name: 'Trương Mỹ Quyên',
+            email: 'quyen.truong@st.ueh.edu.vn'
         },
-        {
-          id: 13,
-          orderNumber: 'ORD-2025-013',
-          customer: {
-            name: 'Kevin Thompson',
-            email: 'kevin@example.com',
-            avatar: '/assets/images/avatar-placeholder.svg'
-          },
-          items: [
-            { name: 'Tablet Pro 12.9"', quantity: 1, price: 1099.99 }
-          ],
-          itemCount: 1,
-          total: 1099.99,
-          status: 'delivered',
-          orderDate: '2025-01-03',
-          shippingAddress: '147 Tech Plaza, City, State 88990'
+        items: [{ name: 'Workshop Nâng Hạng TTCK Việt Nam', quantity: 1, price: 0 }],
+        itemCount: 1,
+        total: 0,
+        status: 'shipped',
+        orderDate: '2025-09-25',
+        shippingAddress: 'B1.302'
+    },
+    {
+        id: 13,
+        orderNumber: 'VE-UEH-013',
+        customer: {
+            name: 'Mai Thế Sơn',
+            email: 'son.mai@st.ueh.edu.vn'
         },
-        {
-          id: 14,
-          orderNumber: 'ORD-2025-014',
-          customer: {
-            name: 'Rachel Garcia',
-            email: 'rachel@example.com',
-            avatar: '/assets/images/avatar-placeholder.svg'
-          },
-          items: [
-            { name: 'Garden Planter Set', quantity: 1, price: 89.99 },
-            { name: 'Desk Organizer', quantity: 2, price: 34.99 }
-          ],
-          itemCount: 3,
-          total: 159.97,
-          status: 'processing',
-          orderDate: '2025-01-02',
-          shippingAddress: '258 Garden Way, City, State 22334'
+        items: [{ name: 'Zeeniverse By U - Cuộc Thi Mascot', quantity: 1, price: 0 }],
+        itemCount: 1,
+        total: 0,
+        status: 'delivered',
+        orderDate: '2025-11-10',
+        shippingAddress: 'Online UEH'
+    },
+    {
+        id: 14,
+        orderNumber: 'VE-UEH-014',
+        customer: {
+            name: 'Tô Ngọc Tú',
+            email: 'tu.to@st.ueh.edu.vn'
         },
-        {
-          id: 15,
-          orderNumber: 'ORD-2025-015',
-          customer: {
-            name: 'Steven Hall',
-            email: 'steven@example.com',
-            avatar: '/assets/images/avatar-placeholder.svg'
-          },
-          items: [
-            { name: 'AI & Machine Learning', quantity: 1, price: 79.99 }
-          ],
-          itemCount: 1,
-          total: 79.99,
-          status: 'pending',
-          orderDate: '2025-01-01',
-          shippingAddress: '369 Learning Lane, City, State 66778'
+        items: [{ name: 'Workshop Khám Phá AI Và Web3', quantity: 1, price: 0 }],
+        itemCount: 1,
+        total: 0,
+        status: 'processing',
+        orderDate: '2024-10-15',
+        shippingAddress: 'B1.303'
+    },
+    {
+        id: 15,
+        orderNumber: 'VE-UEH-015',
+        customer: {
+            name: 'Phan Uyên Vi',
+            email: 'vi.phan@st.ueh.edu.vn'
         },
-        {
-          id: 16,
-          orderNumber: 'ORD-2024-050',
-          customer: {
-            name: 'Nicole Allen',
-            email: 'nicole@example.com',
-            avatar: '/assets/images/avatar-placeholder.svg'
-          },
-          items: [
-            { name: 'Wireless Headphones', quantity: 2, price: 149.99 }
-          ],
-          itemCount: 2,
-          total: 299.98,
-          status: 'delivered',
-          orderDate: '2024-12-30',
-          shippingAddress: '741 Audio Street, City, State 99887'
+        items: [{ name: 'Webinar Bản Đồ Ikigai', quantity: 1, price: 0 }],
+        itemCount: 1,
+        total: 0,
+        status: 'pending',
+        orderDate: '2024-12-05',
+        shippingAddress: 'Trực tuyến'
+    },
+    {
+        id: 16,
+        orderNumber: 'VE-UEH-016',
+        customer: {
+            name: 'Lê Hoàng Xuân',
+            email: 'xuan.le@st.ueh.edu.vn'
         },
-        {
-          id: 17,
-          orderNumber: 'ORD-2024-049',
-          customer: {
-            name: 'Anthony Young',
-            email: 'anthony@example.com',
-            avatar: '/assets/images/avatar-placeholder.svg'
-          },
-          items: [
-            { name: 'Cotton T-Shirt', quantity: 5, price: 24.99 }
-          ],
-          itemCount: 5,
-          total: 124.95,
-          status: 'shipped',
-          orderDate: '2024-12-29',
-          shippingAddress: '852 Fashion Ave, City, State 11229'
+        items: [{ name: 'Lễ Tuyên Dương SV5T 2025', quantity: 1, price: 0 }],
+        itemCount: 1,
+        total: 0,
+        status: 'delivered',
+        orderDate: '2025-12-14',
+        shippingAddress: 'B1.302'
+    },
+    {
+        id: 17,
+        orderNumber: 'VE-UEH-017',
+        customer: {
+            name: 'Trịnh Quốc Uy',
+            email: 'uy.trinh@st.ueh.edu.vn'
         },
-        {
-          id: 18,
-          orderNumber: 'ORD-2024-048',
-          customer: {
-            name: 'Patricia King',
-            email: 'patricia@example.com',
-            avatar: '/assets/images/avatar-placeholder.svg'
-          },
-          items: [
-            { name: 'Kitchen Knife Set', quantity: 1, price: 129.99 },
-            { name: 'Coffee Maker Deluxe', quantity: 1, price: 249.99 }
-          ],
-          itemCount: 2,
-          total: 379.98,
-          status: 'processing',
-          orderDate: '2024-12-28',
-          shippingAddress: '963 Kitchen Rd, City, State 44556'
+        items: [{ name: 'Motivation Day - Intel-Legacy', quantity: 1, price: 0 }],
+        itemCount: 1,
+        total: 0,
+        status: 'shipped',
+        orderDate: '2025-09-03',
+        shippingAddress: 'Hội trường B1.302'
+    },
+    {
+        id: 18,
+        orderNumber: 'VE-UEH-018',
+        customer: {
+            name: 'Nguyễn Bảo Yến',
+            email: 'yen.nguyen@st.ueh.edu.vn'
         },
-        {
-          id: 19,
-          orderNumber: 'ORD-2024-047',
-          customer: {
-            name: 'Joshua Wright',
-            email: 'joshua@example.com',
-            avatar: '/assets/images/avatar-placeholder.svg'
-          },
-          items: [
-            { name: 'Smart Home Hub', quantity: 1, price: 199.99 },
-            { name: 'Gaming Mouse RGB', quantity: 1, price: 79.99 }
-          ],
-          itemCount: 2,
-          total: 279.98,
-          status: 'cancelled',
-          orderDate: '2024-12-27',
-          shippingAddress: '147 Smart Home Dr, City, State 77889'
+        items: [{ name: 'Workshop Job Whisperer', quantity: 1, price: 0 }],
+        itemCount: 1,
+        total: 0,
+        status: 'processing',
+        orderDate: '2025-11-20',
+        shippingAddress: 'Online'
+    },
+    {
+        id: 19,
+        orderNumber: 'VE-UEH-019',
+        customer: {
+            name: 'Lâm Nhật Minh',
+            email: 'minh.lam@st.ueh.edu.vn'
         },
-        {
-          id: 20,
-          orderNumber: 'ORD-2024-046',
-          customer: {
-            name: 'Laura Lopez',
-            email: 'laura@example.com',
-            avatar: '/assets/images/avatar-placeholder.svg'
-          },
-          items: [
-            { name: 'MacBook Air M2', quantity: 1, price: 1199.99 }
-          ],
-          itemCount: 1,
-          total: 1199.99,
-          status: 'delivered',
-          orderDate: '2024-12-26',
-          shippingAddress: '456 Tech Center, City, State 33221'
-        }
+        items: [{ name: 'Growth Hacking Đột Phá 2025', quantity: 1, price: 0 }],
+        itemCount: 1,
+        total: 0,
+        status: 'cancelled',
+        orderDate: '2024-12-12',
+        shippingAddress: 'Online'
+    },
+    {
+        id: 20,
+        orderNumber: 'VE-UEH-020',
+        customer: {
+            name: 'Đoàn Gia Bảo',
+            email: 'bao.doan@st.ueh.edu.vn'
+        },
+        items: [{ name: 'Lễ Tuyên Dương Frontline 2025', quantity: 1, price: 0 }],
+        itemCount: 1,
+        total: 0,
+        status: 'delivered',
+        orderDate: '2025-12-05',
+        shippingAddress: 'Bình chọn trực tuyến'
+    }
       ];
     },
 
-    calculateStats() {
-      this.stats.total = this.orders.length;
-      this.stats.pending = this.orders.filter(o => o.status === 'pending').length;
-      this.stats.shipped = this.orders.filter(o => o.status === 'shipped').length;
-      this.stats.revenue = this.orders
-        .filter(o => o.status !== 'cancelled')
-        .reduce((sum, o) => sum + o.total, 0);
+calculateStats() {
+  this.stats.total = this.orders.length;
+  
+  // Ánh xạ từ mã code sang tên tiếng Việt chuẩn
+  const statusMap = {
+    'pending': 'Đang chờ',
+    'processing': 'Đang xử lý',
+    'shipped': 'Đã phát hành',
+    'delivered': 'Đã hoàn thành',
+    'cancelled': 'Đã hủy'
+  };
 
-      // Calculate status distribution
-      const statuses = {};
-      this.orders.forEach(order => {
-        statuses[order.status] = (statuses[order.status] || 0) + 1;
-      });
+  // Cập nhật thống kê thẻ (Stats cards) - dùng cả code cũ và tên mới để tránh sót dữ liệu
+  this.stats.pending = this.orders.filter(o => o.status === 'pending' || o.status === 'Đang chờ').length;
+  this.stats.delivered = this.orders.filter(o => o.status === 'delivered' || o.status === 'Đã hoàn thành').length;
+  this.stats.revenue = 60000; // Giữ nguyên theo dashboard của bạn
 
-      this.statusStats = Object.entries(statuses).map(([name, count]) => ({
-        name: name.charAt(0).toUpperCase() + name.slice(1),
-        count,
-        percentage: Math.round((count / this.orders.length) * 100),
-        color: this.getStatusColor(name)
-      }));
-    },
+  const statuses = {};
+  this.orders.forEach(order => {
+    // Chuyển đổi tên trạng thái sang tiếng Việt trước khi đưa vào mảng thống kê biểu đồ
+    const vnName = statusMap[order.status] || order.status;
+    statuses[vnName] = (statuses[vnName] || 0) + 1;
+  });
 
-    getStatusColor(status) {
-      const colors = {
-        pending: '#ffc107',
-        processing: '#0d6efd',
-        shipped: '#17a2b8',
-        delivered: '#28a745',
-        cancelled: '#dc3545'
-      };
-      return colors[status] || '#6c757d';
-    },
+  this.statusStats = Object.entries(statuses).map(([name, count]) => ({
+    name: name, // Bây giờ name đã là "Đã hoàn thành", "Đang chờ"...
+    count,
+    percentage: Math.round((count / this.orders.length) * 100),
+    color: this.getStatusColor(name)
+  }));
+},
 
+getStatusColor(status) {
+  const colors = {
+    // Chấp nhận cả phím tiếng Anh và tiếng Việt để không bị lỗi màu xám
+    'pending': '#ffc107',
+    'Đang chờ': '#ffc107',
+    'processing': '#0d6efd',
+    'Đang xử lý': '#0d6efd',
+    'shipped': '#17a2b8',
+    'Đã phát hành': '#17a2b8',
+    'delivered': '#28a745',
+    'Đã hoàn thành': '#28a745',
+    'cancelled': '#dc3545',
+    'Đã hủy': '#dc3545'
+  };
+  // Chuyển về chữ thường để so sánh chính xác hơn
+  return colors[status] || colors[status?.toLowerCase()] || '#6c757d';
+},
     filterOrders() {
       this.filteredOrders = this.orders.filter(order => {
         const matchesSearch = !this.searchQuery || 
@@ -510,33 +455,34 @@ document.addEventListener('alpine:init', () => {
         this.selectedOrders.includes(o.id)
       );
 
-      switch (action) {
-        case 'processing':
-          selectedOrderObjects.forEach(order => {
-            if (order.status === 'pending') {
-              order.status = 'processing';
+   switch (action) {
+    case 'Đang xử lý':
+        selectedOrderObjects.forEach(order => {
+            if (order.status === 'Đang chờ') { 
+                order.status = 'Đang xử lý';
             }
-          });
-          this.showNotification('Orders marked as processing!', 'success');
-          break;
-        case 'shipped':
-          selectedOrderObjects.forEach(order => {
-            if (order.status === 'processing') {
-              order.status = 'shipped';
-            }
-          });
-          this.showNotification('Orders marked as shipped!', 'success');
-          break;
-        case 'delivered':
-          selectedOrderObjects.forEach(order => {
-            if (order.status === 'shipped') {
-              order.status = 'delivered';
-            }
-          });
-          this.showNotification('Orders marked as delivered!', 'success');
-          break;
-      }
+        });
+        this.showNotification('Đã chuyển trạng thái sang: Đang xử lý!', 'success');
+        break;
 
+    case 'Đã phát hành': 
+        selectedOrderObjects.forEach(order => {
+            if (order.status === 'Đang xử lý') {
+                order.status = 'Đã phát hành';
+            }
+        });
+        this.showNotification('Đã chuyển trạng thái sang: Đã phát hành!', 'success');
+        break;
+
+    case 'Đã hoàn thành': 
+        selectedOrderObjects.forEach(order => {
+            if (order.status === 'Đã phát hành') {
+                order.status = 'Đã hoàn thành';
+            }
+        });
+        this.showNotification('Đã chuyển trạng thái sang: Đã hoàn thành!', 'success');
+        break;
+}
       this.selectedOrders = [];
       this.calculateStats();
     },
@@ -606,127 +552,147 @@ document.addEventListener('alpine:init', () => {
       this.chartsInitialized = true;
     },
 
-    initOrderTrendsChart() {
-      const chartElement = document.getElementById('orderTrendsChart');
-      if (!chartElement) {
-        console.warn('Order trends chart element not found');
-        return;
-      }
+initOrderTrendsChart() {
+  const chartElement = document.getElementById('orderTrendsChart');
+  if (!chartElement) {
+    console.warn('Không tìm thấy phần tử biểu đồ xu hướng');
+    return;
+  }
 
-      // Clear any existing chart content
-      chartElement.innerHTML = '';
+  chartElement.innerHTML = '';
 
-      try {
-        const trendsData = {
-          series: [{
-            name: 'Orders',
-            data: [12, 19, 15, 27, 24, 32, 28]
-          }, {
-            name: 'Revenue',
-            data: [1200, 1900, 1500, 2700, 2400, 3200, 2800]
-          }],
-          chart: {
-            type: 'area',
-            height: 300,
-            toolbar: { show: false }
-          },
-          colors: ['#6366f1', '#10b981'],
-          fill: {
-            type: 'gradient',
-            gradient: {
-              shadeIntensity: 1,
-              opacityFrom: 0.7,
-              opacityTo: 0.3,
-            }
-          },
-          stroke: {
-            curve: 'smooth',
-            width: 2
-          },
-          xaxis: {
-            categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-          },
-          yaxis: [{
-            title: {
-              text: 'Orders'
-            }
-          }, {
-            opposite: true,
-            title: {
-              text: 'Revenue ($)'
-            }
-          }],
-          tooltip: {
-            y: [{
-              formatter: function (val) {
-                return val + " orders"
-              }
-            }, {
-              formatter: function (val) {
-                return "$" + val
-              }
-            }]
+  try {
+    const trendsData = {
+      series: [{
+        name: 'Số lượng vé', // Đã sửa từ 'Orders'
+        data: [12, 19, 15, 27, 24, 32, 28]
+      }, {
+        name: 'Doanh thu', // Đã sửa từ 'Revenue'
+        data: [1200, 1900, 1500, 2700, 2400, 3200, 2800]
+      }],
+      chart: {
+        type: 'area',
+        height: 300,
+        toolbar: { show: false }
+      },
+      colors: ['#6366f1', '#10b981'],
+      fill: {
+        type: 'gradient',
+        gradient: {
+          shadeIntensity: 1,
+          opacityFrom: 0.7,
+          opacityTo: 0.3,
+        }
+      },
+      stroke: {
+        curve: 'smooth',
+        width: 2
+      },
+      xaxis: {
+        // Việt hóa các ngày trong tuần
+        categories: ['Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7', 'Chủ nhật']
+      },
+      yaxis: [{
+        title: {
+          text: 'Số lượng vé' // Đã sửa tiêu đề trục Y bên trái
+        }
+      }, {
+        opposite: true,
+        title: {
+          text: 'Doanh thu (VNĐ)' // Đã sửa tiêu đề trục Y bên phải
+        }
+      }],
+      tooltip: {
+        y: [{
+          formatter: function (val) {
+            return val + " vé" // Việt hóa đơn vị tooltip số lượng
           }
-        };
-
-        const chart = new ApexCharts(chartElement, trendsData);
-        chart.render();
-      } catch (error) {
-        console.error('Error rendering order trends chart:', error);
+        }, {
+          formatter: function (val) {
+            return val.toLocaleString('vi-VN') + " VNĐ" // Việt hóa đơn vị tiền tệ và định dạng số
+          }
+        }]
       }
-    },
+    };
+
+    const chart = new ApexCharts(chartElement, trendsData);
+    chart.render();
+  } catch (error) {
+    console.error('Lỗi khi vẽ biểu đồ xu hướng đơn vé:', error);
+  }
+},
 
     initStatusChart() {
-      const chartElement = document.getElementById('statusChart');
-      if (!chartElement) {
-        console.warn('Status chart element not found');
+    const chartElement = document.getElementById('statusChart');
+    if (!chartElement) {
+        console.warn('Không tìm thấy phần tử biểu đồ trạng thái');
         return;
-      }
+    }
 
-      // Clear any existing chart content
-      chartElement.innerHTML = '';
+    // Xóa nội dung biểu đồ cũ nếu có
+    chartElement.innerHTML = '';
 
-      try {
+    try {
         const chartData = {
-          series: this.statusStats.map(stat => stat.count),
-          chart: {
-            type: 'donut',
-            height: 200
-          },
-          labels: this.statusStats.map(stat => stat.name),
-          colors: this.statusStats.map(stat => stat.color),
-          plotOptions: {
-            pie: {
-              donut: {
-                size: '70%'
-              }
+            // Dữ liệu số lượng (đã tính từ calculateStats)
+            series: this.statusStats.map(stat => stat.count),
+            chart: {
+                type: 'donut',
+                height: 200
+            },
+            // Nhãn hiển thị (Sẽ lấy tên tiếng Việt từ hàm calculateStats: "Đang chờ", "Đang xử lý"...)
+            labels: this.statusStats.map(stat => {
+                const mapVN = {
+                    'delivered': 'Đã hoàn thành',
+                    'pending': 'Đang chờ',
+                    'processing': 'Đang xử lý',
+                    'shipped': 'Đã phát hành',
+                    'cancelled': 'Đã hủy'
+                };
+                return mapVN[stat.name.toLowerCase()] || stat.name;
+            }),
+            colors: this.statusStats.map(stat => stat.color),
+            plotOptions: {
+                pie: {
+                    donut: {
+                        size: '70%',
+                        // Bạn có thể thêm nhãn tổng số vé ở giữa hình tròn
+                        labels: {
+                            show: true,
+                            total: {
+                                show: true,
+                                label: 'Tổng cộng',
+                                formatter: () => this.stats.total
+                            }
+                        }
+                    }
+                }
+            },
+            legend: {
+                show: false
+            },
+            tooltip: {
+                y: {
+                    // Việt hóa đơn vị hiển thị khi di chuột vào biểu đồ
+                    formatter: function (val) {
+                        return val + " vé";
+                    }
+                }
             }
-          },
-          legend: {
-            show: false
-          },
-          tooltip: {
-            y: {
-              formatter: function (val) {
-                return val + " orders"
-              }
-            }
-          }
         };
 
         const chart = new ApexCharts(chartElement, chartData);
         chart.render();
-      } catch (error) {
-        console.error('Error rendering status chart:', error);
-      }
-    },
+    } catch (error) {
+        console.error('Lỗi khi hiển thị biểu đồ trạng thái:', error);
+    }
+},
 
-    get paginatedOrders() {
-      const start = (this.currentPage - 1) * this.itemsPerPage;
-      const end = start + this.itemsPerPage;
-      return this.filteredOrders.slice(start, end);
-    },
-
+get paginatedOrders() {
+    const start = (this.currentPage - 1) * this.itemsPerPage;
+    const end = start + this.itemsPerPage;
+    return this.filteredOrders.slice(start, end);
+},
     get totalPages() {
       return Math.ceil(this.filteredOrders.length / this.itemsPerPage);
     },
