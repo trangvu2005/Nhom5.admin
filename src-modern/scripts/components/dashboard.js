@@ -100,20 +100,17 @@ export class DashboardManager {
 
   generateOrderData() {
     return {
-      completed: 1245,
-      pending: 87,
-      cancelled: 23,
-      processing: 156
+      XacNhan: 1245,
+      ThanhToan: 87,
+      HoanThanh: 179
     };
   }
 
   generateRecentOrders() {
     const customers = ['John Doe', 'Jane Smith', 'Mike Johnson', 'Sarah Wilson', 'Bob Brown'];
     const statuses = [
-        { text: 'Completed', class: 'bg-success' },
-        { text: 'Pending', class: 'bg-warning' },
-        { text: 'Shipped', class: 'bg-info' },
-        { text: 'Cancelled', class: 'bg-danger' }
+        { text: 'Xác nhận', class: 'bg-success' },
+        { text: 'Thanh toán', class: 'bg-warning' },
     ];
     return Array.from({length: 5}, () => ({
         id: `#${Math.floor(Math.random() * 9000) + 1000}`,
@@ -126,16 +123,12 @@ export class DashboardManager {
 
   generateSalesByLocation() {
     return [
-        { "name": "United States", "value": 2822},
-        { "name": "Canada", "value": 1432},
-        { "name": "United Kingdom", "value": 980},
-        { "name": "Australia", "value": 780},
-        { "name": "Germany", "value": 650},
-        { "name": "Brazil", "value": 450},
-        { "name": "India", "value": 1800},
-        { "name": "China", "value": 2100},
-        { "name": "Japan", "value": 850},
-        { "name": "Russia", "value": 550}
+        { "name": "Quan 10", "value": 2822},
+        { "name": "Quan 3 ", "value": 1432},
+        { "name": "Quan 1", "value": 980},
+        { "name": "Quan Binh Thanh", "value": 780},
+        { "name": "Quan 8", "value": 650},
+        { "name": "Quan Thu Đuc", "value": 450},
     ]
   }
 
@@ -160,11 +153,11 @@ export class DashboardManager {
           {
             label: 'Revenue',
             data: this.data.revenue.map(item => item.revenue),
-            borderColor: 'rgb(99, 102, 241)',
-            backgroundColor: 'rgba(99, 102, 241, 0.1)',
+            borderColor: 'rgb(21, 91, 101)',
+            backgroundColor: 'rgba(21, 91, 101, 0.1)',
             fill: true,
             tension: 0.4,
-            pointBackgroundColor: 'rgb(99, 102, 241)',
+            pointBackgroundColor: 'rgb(21, 91, 101)',
             pointBorderColor: '#fff',
             pointBorderWidth: 2,
             pointRadius: 6,
@@ -257,8 +250,8 @@ export class DashboardManager {
           {
             label: 'New Users',
             data: this.data.users.slice(-7).map(item => item.newUsers),
-            backgroundColor: 'rgba(99, 102, 241, 0.8)',
-            borderColor: 'rgb(99, 102, 241)',
+            backgroundColor: 'rgba(21, 91, 101, 0.8)',
+            borderColor: 'rgb(21, 91, 101, 0.8)',
             borderWidth: 1,
             borderRadius: 6,
             borderSkipped: false
@@ -291,50 +284,6 @@ export class DashboardManager {
 
     this.charts.set('userGrowth', chart);
   }
-
-  initOrderStatusChart() {
-    const ctx = document.getElementById('orderStatusChart');
-    if (!ctx) return;
-
-    const chart = new Chart(ctx, {
-      type: 'doughnut',
-      data: {
-        labels: ['Completed', 'Processing', 'Pending', 'Cancelled'],
-        datasets: [{
-          data: [
-            this.data.orders.completed,
-            this.data.orders.processing,
-            this.data.orders.pending,
-            this.data.orders.cancelled
-          ],
-          backgroundColor: [
-            'rgba(16, 185, 129, 0.8)',
-            'rgba(99, 102, 241, 0.8)',
-            'rgba(245, 158, 11, 0.8)',
-            'rgba(239, 68, 68, 0.8)'
-          ],
-          borderWidth: 0,
-          cutout: '60%'
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            position: 'bottom',
-            labels: {
-              padding: 20,
-              usePointStyle: true
-            }
-          }
-        }
-      }
-    });
-
-    this.charts.set('orderStatus', chart);
-  }
-
   initStorageChart() {
     const options = {
       chart: {
@@ -392,107 +341,6 @@ export class DashboardManager {
     chart.render();
     this.charts.set('storage', chart);
   }
-
-  initSalesByLocationChart() {
-      const chartElement = document.querySelector("#salesByLocationChart");
-      if (!chartElement) return;
-
-      const options = {
-          series: [{
-              name: 'Sales',
-              data: this.data.salesByLocation.map(c => ({ x: c.name, y: c.value }))
-          }],
-          chart: {
-              type: 'treemap',
-              height: 350,
-              width: '100%',
-              toolbar: {
-                  show: true,
-                  tools: {
-                      download: true,
-                      selection: false,
-                      zoom: false,
-                      zoomin: false,
-                      zoomout: false,
-                      pan: false,
-                      reset: false
-                  }
-              },
-              events: {
-                  mounted: (chart) => {
-                      chart.windowResizeHandler();
-                  }
-              }
-          },
-          dataLabels: {
-              enabled: true,
-              style: {
-                  fontSize: '12px',
-              },
-              formatter: function(text, op) {
-                  return [text, op.value]
-              },
-              offsetY: -4
-          },
-          plotOptions: {
-              treemap: {
-                  enableShades: true,
-                  shadeIntensity: 0.5,
-                  reverseNegativeShade: true,
-                  colorScale: {
-                      ranges: [
-                          { from: 0, to: 1000, color: '#CDD7B6' },
-                          { from: 1001, to: 2000, color: '#A4B494' },
-                          { from: 2001, to: 3000, color: '#52708E' }
-                      ]
-                  }
-              }
-          },
-          responsive: [{
-              breakpoint: 1200,
-              options: {
-                  chart: {
-                      height: 350
-                  },
-                  dataLabels: {
-                      style: {
-                          fontSize: '11px'
-                      }
-                  }
-              }
-          }, {
-              breakpoint: 768,
-              options: {
-                  chart: {
-                      height: 300
-                  },
-                  dataLabels: {
-                      style: {
-                          fontSize: '10px'
-                      }
-                  }
-              }
-          }]
-      };
-
-      const chart = new ApexCharts(chartElement, options);
-      chart.render();
-      this.charts.set('salesByLocation', chart);
-
-      // Force resize on window resize for better responsiveness
-      window.addEventListener('resize', () => {
-          if (this.charts.has('salesByLocation')) {
-              setTimeout(() => {
-                  chart.updateOptions({
-                      chart: {
-                          width: '100%'
-                      }
-                  }, false, true);
-              }, 100);
-          }
-      });
-  }
-
   populateRecentOrders() {
       const tableBody = document.getElementById('recent-orders-table');
       if (!tableBody) return;
@@ -539,14 +387,29 @@ export class DashboardManager {
   }
 
   updateStatsCards() {
-    // Animate stats card values
     const statsElements = document.querySelectorAll('[data-stat-value]');
     statsElements.forEach(element => {
+      // Tìm phần tử chứa badge (thẻ small) để đổi màu
+      const parent = element.closest('.flex-grow-1');
+      const badge = parent.querySelector('small');
+      
       const currentValue = parseInt(element.textContent.replace(/[^0-9]/g, ''));
-      const newValue = currentValue + Math.floor(Math.random() * 10) - 5;
+      const change = Math.floor(Math.random() * 20) - 10; // Giả lập mức tăng/giảm ngẫu nhiên
+      const newValue = currentValue + change;
       
       if (newValue > 0) {
         this.animateNumber(element, currentValue, newValue);
+        
+        // Kiểm tra logic để đổi màu sắc trực quan
+        if (change >= 0) {
+            // Nếu tăng: Đổi thành chữ xanh và hiện icon mũi tên lên
+            badge.className = 'text-success';
+            badge.innerHTML = `<i class="bi bi-arrow-up"></i> +${Math.abs(change)}%`;
+        } else {
+            // Nếu giảm: Đổi thành chữ đỏ và hiện icon mũi tên xuống
+            badge.className = 'text-danger';
+            badge.innerHTML = `<i class="bi bi-arrow-down"></i> -${Math.abs(change)}%`;
+        }
       }
     });
   }
@@ -649,5 +512,33 @@ export class DashboardManager {
   destroy() {
     this.charts.forEach(chart => chart.destroy());
     this.charts.clear();
+    
   }
 } 
+document.addEventListener('DOMContentLoaded', function() {
+    // Tìm tất cả các thẻ select trong khu vực biểu đồ
+    const filters = document.querySelectorAll('.card-header select');
+
+    filters.forEach((filter, index) => {
+        const storageKey = `revenue_filter_${index}`;
+        
+        // 1. Tải lại lựa chọn đã lưu từ bộ nhớ trình duyệt
+        const savedChoice = localStorage.getItem(storageKey);
+        if (savedChoice) {
+            filter.value = savedChoice;
+        }
+
+        // 2. Lắng nghe sự kiện khi người dùng thay đổi lựa chọn
+        filter.addEventListener('change', function() {
+            localStorage.setItem(storageKey, this.value);
+            
+            // Thông báo giả lập cập nhật dữ liệu (Sau này bạn có thể kết nối với biểu đồ thật tại đây)
+            console.log(`Đang lọc dữ liệu theo: ${this.options[this.selectedIndex].text}`);
+            
+            // Bạn có thể thêm hiệu ứng tải lại nhẹ để admin biết dữ liệu đang được lọc
+            const chartArea = document.getElementById('revenueChart');
+            chartArea.style.opacity = '0.5';
+            setTimeout(() => { chartArea.style.opacity = '1'; }, 300);
+        });
+    });
+});

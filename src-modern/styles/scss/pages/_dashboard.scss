@@ -1,0 +1,16 @@
+/* Đảm bảo phần nội dung chính luôn bắt đầu dưới Header */
+.admin-main {
+    padding-top: 80px !important; /* Tăng padding để đẩy tiêu đề xuống */
+    position: relative;
+    z-index: 1;
+}
+
+/* Đảm bảo Header luôn nằm trên cùng */
+.admin-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030; /* Cao hơn nội dung chính */
+    height: 70px;
+}

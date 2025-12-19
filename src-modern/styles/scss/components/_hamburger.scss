@@ -49,3 +49,15 @@
         top: 0.75rem;
     }
 } 
+@media (max-width: 768px) {
+  .sidebar { 
+    display: none; /* Hoặc dùng transform: translateX(-100%) để làm hiệu ứng trượt */
+  }
+  .main-content {
+    margin-left: 0 !important; /* Đẩy nội dung chính tràn ra toàn màn hình */
+  }
+}
+.card {
+  width: 100%; /* Trên mobile chiếm trọn chiều ngang */
+  margin-bottom: 15px;
+}
