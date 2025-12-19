@@ -2,7 +2,7 @@
 <html lang="vi" data-bs-theme="light">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Quản lý vé và người tham gia</title>
     
     <meta name="description" content="Hệ thống quản lý đơn hàng toàn diện với theo dõi, xử lý và phân tích">
@@ -28,73 +28,64 @@
         <div class="admin-wrapper" id="admin-wrapper">
             
             <!-- Header -->
-            <header class="admin-header">
-                <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom py-2">
-    <div class="container-fluid d-flex align-items-center justify-content-between">
-        
-        <div class="d-flex align-items-center">
-            <button class="btn btn-link text-dark p-0 me-3 border-0" 
-                    type="button" 
-                    data-sidebar-toggle
-                    aria-label="Toggle Sidebar"
-                    style="text-decoration: none;">
-                <i class="bi bi-list fs-3"></i>
-            </button>
+           <header class="admin-header">
+    <nav class="navbar navbar-light bg-white border-bottom py-1"> <div class="container-fluid d-flex align-items-center justify-content-between flex-nowrap"> <div class="d-flex align-items-center flex-shrink-1 overflow-hidden"> 
+                <button class="btn btn-link text-dark p-0 me-2 border-0" 
+                        type="button" 
+                        data-sidebar-toggle
+                        aria-label="Toggle Sidebar">
+                    <i class="bi bi-list fs-4"></i> </button>
 
-            <a class="navbar-brand d-flex align-items-center m-0" href="./index.html">
-                <h1 class="h5 mb-0 fw-bold text-primary" style="line-height: 1.2; letter-spacing: -0.2px;">
-                    UEH EVENT HUB
-                </h1>
-            </a>
-        </div>
-
-        <div class="navbar-nav flex-row align-items-center gap-1 gap-md-2">
-            
-            <button class="btn btn-outline-secondary d-lg-none border-0">
-                <i class="bi bi-search"></i>
-            </button>
-
-            <div x-data="themeSwitch">
-                <button class="btn btn-outline-secondary border-0" type="button" @click="toggle()">
-                    <i class="bi bi-sun-fill" x-show="currentTheme === 'light'"></i>
-                    <i class="bi bi-moon-fill" x-show="currentTheme === 'dark'"></i>
-                </button>
+                <a class="navbar-brand d-flex align-items-center m-0" href="./index.html">
+                    <h1 class="h6 mb-0 fw-bold text-primary text-nowrap" style="letter-spacing: -0.5px;"> UEH EVENT HUB
+                    </h1>
+                </a>
             </div>
 
-            <div class="dropdown me-1">
-                <button class="btn btn-outline-secondary border-0 position-relative" type="button" data-bs-toggle="dropdown">
-                    <i class="bi bi-bell fs-5"></i>
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem; padding: 0.25em 0.4em;">
-                        3
-                    </span>
+            <div class="navbar-nav flex-row align-items-center gap-1"> <button class="btn btn-link text-secondary p-1 border-0">
+                    <i class="bi bi-search fs-5"></i>
                 </button>
-                <ul class="dropdown-menu dropdown-menu-end shadow-sm">
-                    <li><h6 class="dropdown-header">Thông báo</h6></li>
-                    <li><a class="dropdown-item" href="#">Thông báo mới</a></li>
-                </ul>
-            </div>
 
-            <div class="dropdown ms-1">
-                <button class="btn btn-outline-secondary border-0 d-flex align-items-center p-1" type="button" data-bs-toggle="dropdown">
-                    <img src="data:image/svg+xml,%3csvg%20width='32'%20height='32'%20viewBox='0%200%2032%2032'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3c!--%20Background%20circle%20--%3e%3ccircle%20cx='16'%20cy='16'%20r='16'%20fill='url(%23avatarGradient)'/%3e%3c!--%20Person%20silhouette%20--%3e%3cg%20fill='white'%20opacity='0.9'%3e%3c!--%20Head%20--%3e%3ccircle%20cx='16'%20cy='12'%20r='5'/%3e%3c!--%20Body%20--%3e%3cpath%20d='M16%2018c-5.5%200-10%202.5-10%207v1h20v-1c0-4.5-4.5-7-10-7z'/%3e%3c/g%3e%3c!--%20Subtle%20border%20--%3e%3ccircle%20cx='16'%20cy='16'%20r='15.5'%20fill='none'%20stroke='rgba(255,255,255,0.2)'%20stroke-width='1'/%3e%3c!--%20Gradient%20definition%20--%3e%3cdefs%3e%3clinearGradient%20id='avatarGradient'%20x1='0%25'%20y1='0%25'%20x2='100%25'%20y2='100%25'%3e%3cstop%20offset='0%25'%20style='stop-color:%236b7280;stop-opacity:1'%20/%3e%3cstop%20offset='100%25'%20style='stop-color:%234b5563;stop-opacity:1'%20/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e" 
+                <div x-data="themeSwitch" class="d-flex">
+                    <button class="btn btn-link text-secondary p-1 border-0" type="button" @click="toggle()">
+                        <i class="bi bi-sun-fill" x-show="currentTheme === 'light'"></i>
+                        <i class="bi bi-moon-fill" x-show="currentTheme === 'dark'"></i>
+                    </button>
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn btn-link text-secondary p-1 border-0 position-relative" type="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-bell fs-5"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.5rem; padding: 0.2rem 0.3rem;">
+                            3
+                        </span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                        <li><h6 class="dropdown-header">Thông báo</h6></li>
+                        <li><a class="dropdown-item" href="#">Thông báo mới</a></li>
+                    </ul>
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn btn-link text-secondary border-0 d-flex align-items-center p-1" type="button" data-bs-toggle="dropdown">
+                          <img src="data:image/svg+xml,%3csvg%20width='32'%20height='32'%20viewBox='0%200%2032%2032'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3c!--%20Background%20circle%20--%3e%3ccircle%20cx='16'%20cy='16'%20r='16'%20fill='url(%23avatarGradient)'/%3e%3c!--%20Person%20silhouette%20--%3e%3cg%20fill='white'%20opacity='0.9'%3e%3c!--%20Head%20--%3e%3ccircle%20cx='16'%20cy='12'%20r='5'/%3e%3c!--%20Body%20--%3e%3cpath%20d='M16%2018c-5.5%200-10%202.5-10%207v1h20v-1c0-4.5-4.5-7-10-7z'/%3e%3c/g%3e%3c!--%20Subtle%20border%20--%3e%3ccircle%20cx='16'%20cy='16'%20r='15.5'%20fill='none'%20stroke='rgba(255,255,255,0.2)'%20stroke-width='1'/%3e%3c!--%20Gradient%20definition%20--%3e%3cdefs%3e%3clinearGradient%20id='avatarGradient'%20x1='0%25'%20y1='0%25'%20x2='100%25'%20y2='100%25'%3e%3cstop%20offset='0%25'%20style='stop-color:%236b7280;stop-opacity:1'%20/%3e%3cstop%20offset='100%25'%20style='stop-color:%234b5563;stop-opacity:1'%20/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e" 
                                      alt="User Avatar" 
                                      width="24" 
                                      height="24" 
                                      class="rounded-circle me-2">
                                 <span class="d-none d-md-inline">John Doe</span>
-                    <i class="bi bi-chevron-down small d-none d-md-inline ms-1"></i>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end shadow-sm">
-                    <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Hồ sơ</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-box-arrow-right me-2"></i>Đăng xuất</a></li>
-                </ul>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Hồ sơ</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-box-arrow-right me-2"></i>Đăng xuất</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </div>
-</nav>
-            </header>
 
+        </div>
+    </nav>
+</header>
             <!-- Sidebar -->
         <aside class="admin-sidebar" id="admin-sidebar">
             <div class="sidebar-content">
@@ -137,24 +128,25 @@
         </p>
     </div>
 </div>
-
 <div class="row g-2 mb-4">
     <div class="col-4">
         <div class="card h-100 border-0 shadow-sm text-center py-2 bg-white">
             <i class="bi bi-download mb-1 text-primary" style="font-size: 0.8rem;"></i>
-            <div style="font-size: 9px;" class="fw-bold text-nowrap" style="color: #006B6F">Xuất dữ liệu</div>
+            <div class="fw-bold text-nowrap" style="font-size: 9px; color: #006B6F;">Xuất dữ liệu</div>
         </div>
     </div>
+
     <div class="col-4">
         <div class="card h-100 border-0 shadow-sm text-center py-2 bg-white">
             <i class="bi bi-arrow-repeat mb-1 text-success" style="font-size: 0.8rem;"></i>
-            <div style="font-size: 9px;" class="fw-bold text-nowrap" style="color: #006B6F">Cập nhật loạt</div>
+            <div class="fw-bold text-nowrap" style="font-size: 9px; color: #006B6F;">Cập nhật hàng loạt</div>
         </div>
     </div>
+
     <div class="col-4">
         <div class="card h-100 border-0 shadow-sm text-center py-2 bg-white">
             <i class="bi bi-plus-lg mb-1 text-danger" style="font-size: 0.8rem;"></i>
-            <div style="font-size: 9px;" class="fw-bold text-nowrap" style="color: #006B6F">Đơn vé mới</div>
+            <div class="fw-bold text-nowrap" style="font-size: 9px; color: #006B6F;">Đơn vé mới</div>
         </div>
     </div>
 </div>
