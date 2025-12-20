@@ -26,66 +26,99 @@
     <!-- Container ứng dụng quản trị -->
     <div class="admin-app">
         <div class="admin-wrapper" id="admin-wrapper">
+<header class="admin-header">
+    <nav class="navbar navbar-light bg-white border-bottom">
+        <div class="container-fluid d-flex align-items-center flex-nowrap">
             
-            <!-- Header -->
-           <header class="admin-header">
-    <nav class="navbar navbar-light bg-white border-bottom py-1"> <div class="container-fluid d-flex align-items-center justify-content-between flex-nowrap"> <div class="d-flex align-items-center flex-shrink-1 overflow-hidden"> 
-                <button class="btn btn-link text-dark p-0 me-2 border-0" 
-                        type="button" 
-                        data-sidebar-toggle
-                        aria-label="Toggle Sidebar">
-                    <i class="bi bi-list fs-4"></i> </button>
+            <div class="d-flex align-items-center me-auto">
+                <button class="btn btn-link text-dark p-0 me-2" type="button" id="sidebarToggle">
+                    <i class="bi bi-list fs-4"></i>
+                </button>
 
                 <a class="navbar-brand d-flex align-items-center m-0" href="./index.html">
-                    <h1 class="h6 mb-0 fw-bold text-primary text-nowrap" style="letter-spacing: -0.5px;"> UEH EVENT HUB
-                    </h1>
+                    <h1 class="h5 mb-0 fw-bold text-primary text-nowrap">UEH EVENTS HUB</h1>
                 </a>
             </div>
 
-            <div class="navbar-nav flex-row align-items-center gap-1"> <button class="btn btn-link text-secondary p-1 border-0">
-                    <i class="bi bi-search fs-5"></i>
+            <div class="search-container flex-grow-1 d-flex justify-content-end justify-content-md-center px-2" x-data="searchComponent">
+                <div class="position-relative d-none d-md-block w-100" style="max-width: 400px;">
+                    <input type="search" class="form-control" placeholder="Tìm kiếm... (Ctrl + K)">
+                    <i class="bi bi-search position-absolute top-50 end-0 translate-middle-y me-3 text-muted"></i>
+                </div>
+                
+                <button class="btn btn-outline-secondary border-0 d-md-none" type="button">
+                    <i class="bi bi-search"></i>
                 </button>
+            </div>
 
-                <div x-data="themeSwitch" class="d-flex">
-                    <button class="btn btn-link text-secondary p-1 border-0" type="button" @click="toggle()">
+            <div class="navbar-nav flex-row align-items-center flex-nowrap">
+                <div x-data="themeSwitch" class="me-1">
+                    <button class="btn btn-outline-secondary border-0" @click="toggle()">
                         <i class="bi bi-sun-fill" x-show="currentTheme === 'light'"></i>
                         <i class="bi bi-moon-fill" x-show="currentTheme === 'dark'"></i>
                     </button>
                 </div>
 
-                <div class="dropdown">
-                    <button class="btn btn-link text-secondary p-1 border-0 position-relative" type="button" data-bs-toggle="dropdown">
-                        <i class="bi bi-bell fs-5"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.5rem; padding: 0.2rem 0.3rem;">
-                            3
-                        </span>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end shadow-sm">
-                        <li><h6 class="dropdown-header">Thông báo</h6></li>
-                        <li><a class="dropdown-item" href="#">Thông báo mới</a></li>
-                    </ul>
-                </div>
+                        <div class="dropdown me-2">
+                            <button class="btn btn-outline-secondary position-relative" type="button" data-bs-display="static"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-bell"></i>
+                                <span
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    3
+                                </span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                    <h6 class="dropdown-header">Thông báo</h6>
+                                </li>
+                                <li><a class="dropdown-item" href="#">Có người dùng mới đăng ký</a></li>
+                                <li><a class="dropdown-item" href="#">Cập nhật trạng thái máy chủ</a></li>
+                                <li><a class="dropdown-item" href="#">Bạn có tin nhắn mới</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item text-center" href="#">Xem tất cả thông báo</a></li>
+                            </ul>
+                        </div>
+                       <!-- Menu người dùng -->
+                        <div class="dropdown">
+                            <button class="btn btn-outline-secondary d-flex align-items-center" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
 
-                <div class="dropdown">
-                    <button class="btn btn-link text-secondary border-0 d-flex align-items-center p-1" type="button" data-bs-toggle="dropdown">
-                          <img src="data:image/svg+xml,%3csvg%20width='32'%20height='32'%20viewBox='0%200%2032%2032'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3c!--%20Background%20circle%20--%3e%3ccircle%20cx='16'%20cy='16'%20r='16'%20fill='url(%23avatarGradient)'/%3e%3c!--%20Person%20silhouette%20--%3e%3cg%20fill='white'%20opacity='0.9'%3e%3c!--%20Head%20--%3e%3ccircle%20cx='16'%20cy='12'%20r='5'/%3e%3c!--%20Body%20--%3e%3cpath%20d='M16%2018c-5.5%200-10%202.5-10%207v1h20v-1c0-4.5-4.5-7-10-7z'/%3e%3c/g%3e%3c!--%20Subtle%20border%20--%3e%3ccircle%20cx='16'%20cy='16'%20r='15.5'%20fill='none'%20stroke='rgba(255,255,255,0.2)'%20stroke-width='1'/%3e%3c!--%20Gradient%20definition%20--%3e%3cdefs%3e%3clinearGradient%20id='avatarGradient'%20x1='0%25'%20y1='0%25'%20x2='100%25'%20y2='100%25'%3e%3cstop%20offset='0%25'%20style='stop-color:%236b7280;stop-opacity:1'%20/%3e%3cstop%20offset='100%25'%20style='stop-color:%234b5563;stop-opacity:1'%20/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e" 
-                                     alt="User Avatar" 
-                                     width="24" 
-                                     height="24" 
-                                     class="rounded-circle me-2">
+                                <!-- Avatar -->
+                                <img src="data:image/svg+xml,%3csvg%20width='32'%20height='32'%20viewBox='0%200%2032%2032'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3ccircle%20cx='16'%20cy='16'%20r='16'%20fill='url(%23avatarGradient)'/%3e%3cg%20fill='white'%20opacity='0.9'%3e%3ccircle%20cx='16'%20cy='12'%20r='5'/%3e%3cpath%20d='M16%2018c-5.5%200-10%202.5-10%207v1h20v-1c0-4.5-4.5-7-10-7z'/%3e%3c/g%3e%3ccircle%20cx='16'%20cy='16'%20r='15.5'%20fill='none'%20stroke='rgba(255,255,255,0.2)'%20stroke-width='1'/%3e%3cdefs%3e%3clinearGradient%20id='avatarGradient'%20x1='0%25'%20y1='0%25'%20x2='100%25'%20y2='100%25'%3e%3cstop%20offset='0%25'%20style='stop-color:%236b7280;stop-opacity:1'%20/%3e%3cstop%20offset='100%25'%20style='stop-color:%234b5563;stop-opacity:1'%20/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e"
+                                    alt="User Avatar" width="24" height="24" class="rounded-circle me-2">
+
+                                <!-- Tên user -->
                                 <span class="d-none d-md-inline">John Doe</span>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end shadow-sm">
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Hồ sơ</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-box-arrow-right me-2"></i>Đăng xuất</a></li>
-                    </ul>
-                </div>
-            </div>
+                                <i class="bi bi-chevron-down ms-1"></i>
+                             <!-- Dropdown menu -->
+                             <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="bi bi-person me-2"></i> Hồ sơ cá nhân
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="bi bi-gear me-2"></i> Cài đặt hệ thống
+                                    </a>
+                                </li>
 
-        </div>
-    </nav>
-</header>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="bi bi-box-arrow-right me-2"></i> Đăng xuất
+                                    </a>
+                                </li>
+                            </ul>    
+                        </div>
+                    </nav>
+                </header>
             <!-- Sidebar -->
         <aside class="admin-sidebar" id="admin-sidebar">
             <div class="sidebar-content">
@@ -601,5 +634,34 @@
         }
       });
     </script>
+    <style>
+    /* Ép tất cả các ô dữ liệu và tiêu đề trong bảng khuyến mãi vào chính giữa */ 
+    [x-data="promoCodeManager"] table th,
+    [x-data="promoCodeManager"] table td {
+        text-align: center !important;
+        vertical-align: middle !important;
+    }
+    
+    /* Căn chỉnh riêng cho cột Mã khuyến mãi để code block không bị dính lề */
+    [x-data="promoCodeManager"] table td code {
+        display: inline-block;
+        margin: 0 auto;
+    }
+/* Ép menu dropdown không được chiếm diện tích của Header */
+.admin-header .dropdown-menu {
+    position: absolute !important;
+    top: 100% !important;
+    right: 0 !important;
+    margin: 0 !important;
+    transform: translateY(5px) !important; /* Tạo khoảng cách nhỏ bên dưới nút */
+}
+
+/* Giữ chiều cao Header luôn ổn định */
+.admin-header nav {
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+}
+</style>
 </body>
 </html>

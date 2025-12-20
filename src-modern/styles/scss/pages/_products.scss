@@ -196,3 +196,31 @@
     color: #006B6F !important;
     border-color: #000000 !important;
 }
+// Fix lỗi Header bị nhảy và Dropdown đẩy nội dung
+.admin-header {
+    position: sticky !important;
+    top: 0;
+    z-index: 1020;
+    background-color: var(--bs-white);
+    min-height: 56px; // Đảm bảo header luôn giữ khung dù có chuyện gì xảy ra
+    display: flex;
+    align-items: center;
+
+    // Ép Dropdown phải là dạng lớp phủ (Floating)
+    .dropdown-menu {
+        position: absolute !important;
+        margin-top: 0 !important;
+        transform: translateY(10px); // Đẩy menu xuống dưới một chút cho đẹp
+        z-index: 1050;
+    }
+}
+
+// Đảm bảo container của Navbar không bị vỡ flow
+.navbar {
+    width: 100%;
+    .container-fluid {
+        display: flex !important;
+        align-items: center !important;
+        flex-wrap: nowrap !important; // Ngăn các phần tử nhảy xuống dòng
+    }
+}
