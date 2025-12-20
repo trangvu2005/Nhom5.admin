@@ -638,34 +638,5 @@
         }
       });
     </script>
-    <style>
-    /* Ép tất cả các ô dữ liệu và tiêu đề trong bảng khuyến mãi vào chính giữa */ 
-    [x-data="promoCodeManager"] table th,
-    [x-data="promoCodeManager"] table td {
-        text-align: center !important;
-        vertical-align: middle !important;
-    }
-    
-    /* Căn chỉnh riêng cho cột Mã khuyến mãi để code block không bị dính lề */
-    [x-data="promoCodeManager"] table td code {
-        display: inline-block;
-        margin: 0 auto;
-    }
-/* Ép menu dropdown không được chiếm diện tích của Header */
-.admin-header .dropdown-menu {
-    position: absolute !important;
-    top: 100% !important;
-    right: 0 !important;
-    margin: 0 !important;
-    transform: translateY(5px) !important; /* Tạo khoảng cách nhỏ bên dưới nút */
-}
-
-/* Giữ chiều cao Header luôn ổn định */
-.admin-header nav {
-    min-height: 60px;
-    display: flex;
-    align-items: center;
-}
-</style>
 </body>
 </html>
