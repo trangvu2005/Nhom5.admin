@@ -638,5 +638,33 @@
         }
       });
     </script>
+    <style>
+    /* Hiệu ứng Hover cho 3 nút chức năng trang Sự kiện */
+.product-management .header-text + .d-flex .btn-white {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    cursor: pointer !important;
+    border: 1px solid #dee2e6 !important;
+}
+
+.product-management .header-text + .d-flex .btn-white:hover {
+    transform: translateY(-5px) !important; /* Thẻ bay lên 5px */
+    box-shadow: 0 10px 20px rgba(0, 107, 111, 0.15) !important; /* Đổ bóng xanh nhạt */
+    border-color: #006B6F !important; /* Viền đổi sang màu xanh UEH */
+    
+    /* CHỈNH MÀU NỀN HOVER TẠI ĐÂY */
+    background-color: #006B6F !important; 
+}
+
+/* Hiệu ứng Icon và Chữ bên trong khi hover */
+.product-management .header-text + .d-flex .btn-white:hover i {
+    transform: scale(1.2); /* Icon phóng to 20% */
+    color: #ffffff !important;
+    transition: transform 0.3s ease;
+}
+
+.product-management .header-text + .d-flex .btn-white:hover span {
+    color: #ffffff !important; /* Chữ đổi sang màu xanh UEH */
+}
+</style>
 </body>
 </html>
