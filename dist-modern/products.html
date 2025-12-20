@@ -466,10 +466,15 @@
                                 </td>
 
                                 <td>
-                                    <div class="btn-group btn-group-sm">
-                                        <button class="btn btn-outline-primary" @click="editProduct(product)"><i class="bi bi-pencil"></i></button>
-                                        <button class="btn btn-outline-danger" @click="deleteProduct(product)"><i class="bi bi-trash"></i></button>
-                                    </div>
+                                    <div class="d-flex gap-2">
+                                    <a :href="'edit-promo.html?id=' + index" class="btn btn-outline-secondary btn-sm">
+                                        <i class="bi bi-pencil"></i> Sửa
+                                    </a>
+                                    
+                                    <button class="btn btn-outline-danger btn-sm" @click="deletePromo(index)">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </div>
                                 </td>
                             </tr>
                         </template>
@@ -545,9 +550,14 @@
                         </td>
                         <td>
                             <div class="btn-group btn-group-sm">
-                                <button class="btn btn-outline-secondary" @click="editPromo(index)"><i class="bi bi-pencil"></i></button>
-                                <button class="btn btn-outline-danger" @click="deletePromo(index)"><i class="bi bi-trash"></i></button>
-                            </div>
+                            <a :href="'edit-promo.html?id=' + index" class="btn btn-outline-secondary">
+                                <i class="bi bi-pencil"></i> Sửa mã
+                            </a>
+                            
+                            <button class="btn btn-outline-danger" @click="deletePromo(index)">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </div>
                         </td>
                     </tr>
                 </template>
