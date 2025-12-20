@@ -464,17 +464,16 @@
                                     <span class="badge" :class="product.status === 'published' ? 'bg-success' : 'bg-secondary'" 
                                         x-text="product.status === 'published' ? 'Công khai' : 'Nháp'"></span>
                                 </td>
-
                                 <td>
                                     <div class="d-flex gap-2">
-                                    <a :href="'edit-promo.html?id=' + index" class="btn btn-outline-secondary btn-sm">
-                                        <i class="bi bi-pencil"></i> Sửa
-                                    </a>
-                                    
-                                    <button class="btn btn-outline-danger btn-sm" @click="deletePromo(index)">
-                                        <i class="bi bi-trash"></i>
-                                    </button>
-                                </div>
+                                        <button class="btn btn-outline-secondary btn-sm" @click="editPromo(index)">
+                                            <i class="bi bi-pencil"></i> Sửa
+                                        </button>
+                                        
+                                        <button class="btn btn-outline-danger btn-sm" @click="deletePromo(index)">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                         </template>
@@ -550,9 +549,9 @@
                         </td>
                         <td>
                             <div class="btn-group btn-group-sm">
-                            <a :href="'edit-promo.html?id=' + index" class="btn btn-outline-secondary">
+                            <button class="btn btn-outline-secondary" @click="editPromo(index)">
                                 <i class="bi bi-pencil"></i> Sửa mã
-                            </a>
+                            </button>
                             
                             <button class="btn btn-outline-danger" @click="deletePromo(index)">
                                 <i class="bi bi-trash"></i>
