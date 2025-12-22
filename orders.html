@@ -181,11 +181,12 @@
     </div>
 
     <div class="col-4">
-        <div class="card h-100 border-0 shadow-sm text-center py-2 bg-white">
-            <i class="bi bi-plus-lg mb-1 text-danger" style="font-size: 0.8rem;"></i>
-            <div class="fw-bold text-nowrap" style="font-size: 9px; color: #006B6F;">Đơn vé mới</div>
-        </div>
-    </div>
+    <button class="card h-100 w-100 border-0 shadow-sm text-center py-2 bg-white" 
+            data-bs-toggle="modal" 
+            data-bs-target="#addOrderModal"> <i class="bi bi-plus-lg mb-1 text-danger" style="font-size: 0.8rem;"></i>
+        <div class="fw-bold text-nowrap" style="font-size: 9px; color: #006B6F;">Đơn vé mới</div>
+    </button>
+</div>
 </div>
                     <!-- Container quản lý đơn vé -->
                     <div x-data="orderTable" x-init="init()">
@@ -666,5 +667,66 @@
     color: #ffffff !important; /* Chữ đổi sang màu xanh UEH */
 }
 </style>
+<div class="modal fade" id="addOrderModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title fw-bold">
+                    <i class="bi bi-ticket-perforated me-2"></i>TẠO ĐƠN VÉ MỚI
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-4">
+                <form id="addOrderForm">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Mã vé</label>
+                            <input type="text" class="form-control" placeholder="VD: #1234" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Ngày đặt</label>
+                            <input type="date" class="form-control" required>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label fw-semibold">Người tham gia</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                <input type="text" class="form-control" placeholder="Nhập tên người mua vé" required>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label fw-semibold">Sự kiện đăng ký</label>
+                            <select class="form-select" required>
+                                <option value="">-- Chọn sự kiện trong danh mục --</option>
+                                <option>UEH Concert 2025</option>
+                                <option>Workshop AI trong doanh nghiệp</option>
+                                <option>Hội thảo Kỹ năng GenZ</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Tổng tiền (VNĐ)</label>
+                            <input type="number" class="form-control" placeholder="0" min="0">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Trạng thái</label>
+                            <select class="form-select">
+                                <option value="pending">Đang chờ duyệt</option>
+                                <option value="processing">Đang xử lý</option>
+                                <option value="delivered">Đã hoàn thành</option>
+                                <option value="cancelled">Đã hủy</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer bg-light">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Hủy bỏ</button>
+                <button type="button" class="btn btn-danger px-4 fw-bold" onclick="alert('Đã lưu thông tin đơn vé vào hệ thống!')">
+                    <i class="bi bi-check-lg me-1"></i>LƯU ĐƠN VÉ
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
